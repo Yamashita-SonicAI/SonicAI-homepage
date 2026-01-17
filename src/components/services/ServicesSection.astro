@@ -1,0 +1,23 @@
+---
+// src/components/services/ServiceSection.astro
+import ServiceCard from "./ServicesCard.astro";
+import { services } from "../../data/services";
+---
+
+<section class="service-section">
+<div class = "service-header">
+    <h2>SonicAIが提供するプロダクト/サービス</h2>
+    <a href="" class="service-header-button">詳しく見る →</a>
+  </div>
+  <h4><span class="en">Our product/Service</span></h4>
+
+  <div class="service-slider-viewport">
+    <div class="service-list">
+      {services.map(service => (
+        <div class="service-item">
+          <ServiceCard {...service} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

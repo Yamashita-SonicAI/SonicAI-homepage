@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { newsData } from "../../data/news";
+
+// URLパラメータから個別のニュースを取得
+export function getStaticPaths() {
+  return newsData.map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+---
+
+<Layout title={`${item.title} | SonicAI`}>
+  <main class="news-detail-page">
+    
+    <section class="news-detail-header-black">
+      <div class="container">
+        <a href="/news/news_index" class="back-link light">
+          <span class="arrow">&lt;</span> Back
+        </a>
+        <h1 class="news-title">{item.title}</h1>
+      </div>
+    </section>
+
+    <section class="news-body-section">
+      <div class="container">
+        <article class="news-article">
+          <div class="news-meta-area">
+            <p class="news-date">{item.date}</p>
+            <p class="news-lead">{item.description}</p>
+          </div>
+
+          <div class="news-content">
+            {item.image && (
+              <div class="main-visual">
+                <img src={item.image} alt={item.title} />
+              </div>
+            )}
+            <div class="rich-text" set:html={item.body} />
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  .news-detail-page {
+    background-color: #fff;
+    min-height: 100vh;
+    padding-bottom: 100px;
+  }
+
+  /* タイトル部分：黒背景 */
+  .news-detail-header-black {
+    background-color: #000;
+    padding-top: 100px;
+    padding-bottom: 60px; /* タイトルの下の余白 */
+    width: 100%;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .news-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ff6600; /* オレンジ */
+    margin-bottom: 0; /* セクションのpaddingで調整するため0 */
+    letter-spacing: -0.02em;
+    word-break: break-all;
+  }
+
+  /* 白背景セクション */
+  .news-body-section {
+    background-color: #fff;
+    padding-top: 40px; /* 黒背景との間隔 */
+  }
+
+  /* 白背景の中の日付（黒に戻す） */
+  .news-date {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a; /* 黒 */
+    margin-bottom: 24px;
+  }
+
+  /* 白背景の中のリード文（濃いグレーに戻す） */
+  .news-lead {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    max-width: 800px;
+    margin-bottom: 60px;
+  }
+
+  /* 戻るリンク（白枠） */
+  .back-link.light {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 0px;
+    display: inline-block;
+  }
+
+  /* 本文エリア */
+  .main-visual {
+    margin-bottom: 60px;
+  }
+  .main-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  /* 記事本文のスタイル (set:htmlで流し込む用) */
+  .rich-text {
+    font-size: 1.1rem;
+    line-height: 2.0;
+    color: #1a1a1a;
+  }
+
+  .rich-text :global(p) {
+    margin-bottom: 1.2em;
+    line-height: 1.8;
+  }
+
+  .rich-text :global(p1) {
+    margin-bottom: 1.5em;
+    color: #e65f06ff;
+    font-weight: bold;
+  }
+
+  .rich-text :global(h3) {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 60px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+
+  .rich-text :global(h4) {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 60px 0 0;
+    padding-bottom: 10px;
+  }
+
+  /* 写真の配置操作（本文内に追加する場合） */
+  .rich-text :global(img) {
+    width: 100%;
+    height: auto;
+    margin: 40px 0;
+    border-radius: 4px;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    .news-detail-page { padding-top: 100px; }
+    .news-title { font-size: 2.5rem; }
+    .container { padding: 0 24px; }
+  }
+
+  .rich-text :global(.news-flex-content) {
+    display: flex !important;
+    flex-direction: row !important; /* 明示的に横並びを指定 */
+    flex-wrap: nowrap !important;   /* 下に落ちるのを防ぐ */
+    gap: 30px;
+    align-items: flex-start;
+    margin: 40px 0;
+    width: 100%;
+  }
+
+  /* 画像側の枠：幅を固定 */
+  .rich-text :global(.flex-image) {
+    flex: 0 0 45% !important; /* 50%だと余白の関係で落ちることがあるため45%を推奨 */
+    max-width: 45%;
+  }
+
+  .rich-text :global(.flex-image img) {
+    width: 100% !important;
+    height: auto;
+    display: block;
+    margin: 0 !important; /* 以前の「margin: 0 auto」を上書きして左に寄せる */
+  }
+
+  /* テキスト側の枠：残りの幅を埋める */
+  .rich-text :global(.flex-text) {
+    flex: 1 !important;
+    min-width: 0; /* テキストが長すぎて突き抜けるのを防ぐ魔法の記述 */
+  }
+
+  /* モバイル（スマホ）時のみ縦並びに戻す */
+  @media (max-width: 768px) {
+    .rich-text :global(.news-flex-content) {
+      flex-direction: column !important;
+    }
+    .rich-text :global(.flex-image) {
+      flex: 0 0 100% !important;
+      max-width: 100%;
+    }
+  }
+</style>

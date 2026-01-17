@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+
+  <header class="Info-header">
+    <div class="container">
+      <h1>メンバー</h1>
+    </div>
+  </header>
+
+  <nav class="Info-nav">
+    <div class="container">
+      <ul>
+        <li><a href="info">会社概要</a></li>
+        <li class="active"><a href="#">メンバー</a></li>
+        <li><a href="MessageCEO">代表ご挨拶</a></li>
+        <li><a href="Philosophy">企業理念</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<section class="member-page">
+  <div class="hero-banner">
+    <div class="container">
+      <div class="icon-box">
+        <img src="/icons/members.svg" alt="Members Icon" />
+      </div>
+      <p class="banner-text">
+        SonicAIは、AI、機械学習、ビジネス戦略に強みを持つメンバーで形成されており、豊富な製造現場での業界経験を活かして革新的な社会実装ソリューションを提供するスタートアップです。
+      </p>
+    </div>
+  </div>
+
+  <div class="container member-content">
+    <h2 class="category-title">経営陣</h2>
+
+    <div class="member-card">
+      <div class="member-info">
+        <div class="member-header">
+          <h3 class="name">田中寛之</h3>
+          <span class="position">Founder & CEO</span>
+        </div>
+        <div class="member-bio">
+          <p>慶應義塾大学経済学部卒業後、</p>
+          <p>新卒でキーエンスにて画像処理システムの技術営業に従事。</p>
+          <p>その後、米国経営コンサルファームのA.T.カーニーにて複数の製造業領域のプロジェクトに参画し、2024年6月に、日本の製造業のポテンシャルを開放するべく、株式会社SonicAIを設立</p>
+        </div>
+      </div>
+      <div class="member-photo">
+        <img src="/pictures/ceo.jpg" alt="pic1" />
+      </div>
+    </div>
+
+    <div class="member-card">
+      <div class="member-info">
+        <div class="member-header">
+          <h3 class="name">金 剛洙</h3>
+          <span class="position">Technical Advisor</span>
+        </div>
+        <div class="member-bio">
+          <p>東京大学工学部卒業後、同大学工学院修了</p>
+          <p>2020年より東京大学松尾研究室に参画し、機械学習の社会実装プロジェクトに従事。</p>
+          <p>金融庁の特別研究員を務めるほか、生成AIや金融分野への機械学習応用における豊富な知見を基に、スタートアップの顧問やVCファンドの代表取締役社長CEOなど、多岐にわたる役職を歴任。</p>
+          <p>2024年6月、株式会社SonicAIに参画。</p>
+        </div>
+      </div>
+      <div class="member-photo">
+        <img src="/pictures/ceo.jpg" alt="pic1" />
+      </div>
+    </div>
+
+    <div class="container member-content">
+    <h2 class="category-title">研究員</h2>
+
+    <div class="member-card">
+      <div class="member-info">
+        <div class="member-header">
+          <h3 class="name">木村ななこ</h3>
+          <span class="position">AI Resracher</span>
+        </div>
+        <div class="member-bio">
+          <p>東京大学工学部卒。東京大学大学院 工学系研究科に在籍</p>
+          <p>脳の動作原理に強い関心を持ち、神経回路の仕組みに着想を得た電子回路の実現に向けて研究に取り組む。実装志向が強く、自ら手を動かして価値あるものを形にすることに喜びを感じ、これまでにWeb開発、回路基板の設計・製作、3Dプリンタを用いた試作など、多岐にわたるモノづくりの経験を有する。</p>
+          <p>SonicAIでは、こうしたバックグラウンドを活かし、フロントエンドUIの設計・実装、サーバー構築、さらにはハードウェア選定まで幅広い領域を担当。ソフトウェアとハードウェアの双方にまたがる横断的な技術力で、プロダクト開発に貢献している</p>
+        </div>
+      </div>
+      <div class="member-photo">
+        <img src="/pictures/ceo.jpg" alt="pic1" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 全体共通レイアウト */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* オレンジのバナー部分 */
+  .hero-banner {
+    background-color: #ff6600; /* SonicAIオレンジ */
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .icon-box {
+    margin-bottom: 30px;
+  }
+
+  .icon-box img {
+    width: 60px;
+    filter: brightness(0) invert(1); /* アイコンを白くする */
+  }
+
+  .banner-text {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 0.05em;
+  }
+
+  /* メンバー詳細部分 */
+  .member-content {
+    padding: 100px 0;
+  }
+
+  .category-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff6600;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .member-card {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* テキストと写真の比率 */
+    gap: 60px;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+
+  .member-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+  }
+
+  .position {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .member-bio {
+    font-size: 16px;
+    line-height: 2;
+    color: #444;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .member-bio p {
+    margin-bottom: 0.5em;
+  }
+
+  /* 写真部分の調整 */
+  .member-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: block;
+  }
+
+  /* レスポンシブ (スマホ表示) */
+  @media (max-width: 768px) {
+    .banner-text {
+      font-size: 18px;
+      padding: 0 20px;
+    }
+
+    .member-card {
+      grid-template-columns: 1fr; /* 縦並びに */
+      gap: 40px;
+    }
+
+    .member-photo {
+      order: -1; /* 写真を上に */
+      max-width: 100%;
+    }
+
+    .member-header {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+</style>

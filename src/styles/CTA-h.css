@@ -1,0 +1,67 @@
+.cta-h-section {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-h-container {
+  background: linear-gradient(135deg, #0052cc 0%, #003399 100%); /* 青いグラデーション */
+  border-radius: 8px;
+  padding: 60px;
+  display: flex;
+  color: #fff;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.cta-h-left {
+  flex: 1;
+}
+
+.cta-h-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cta-h-title {
+  font-size: 64px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cta-h-right {
+  flex: 1.5;
+}
+
+.cta-h-text {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.cta-h-description {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-h-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #0052cc;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  min-width: 280px;
+  transition: transform 0.2s ease;
+}
+
+.cta-h-button:hover {
+  transform: translateY(-2px);
+}

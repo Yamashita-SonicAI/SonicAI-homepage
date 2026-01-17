@@ -1,0 +1,50 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import "../styles/home.css";
+import "../styles/contact.css";
+---
+
+<section class="contact-page">
+<div class="contact-title-area">
+  <div class="title-label">
+    <span class="dot">●</span> お問い合わせ
+  </div>
+  <h1 class="main-title">Contact</h1>
+</div>
+  <div class="contact-container">
+    <div class="contact-form-side">
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label>お名前<span>*</span></label>
+          <input type="text" placeholder="お名前" required />
+        </div>
+        <div class="form-group">
+          <label>メールアドレス<span>*</span></label>
+          <input type="email" placeholder="メールアドレス" required />
+        </div>
+        <div class="form-group">
+          <label>お電話番号<span>*</span></label>
+          <input type="tel" placeholder="お電話番号" required />
+        </div>
+        <div class="form-group">
+          <label>会社名</label>
+          <input type="text" placeholder="会社名" />
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ内容</label>
+          <textarea placeholder="お問い合わせ内容"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">送信</button>
+      </form>
+    </div>
+
+    <div class="contact-image-side">
+      <div class="image-wrapper">
+        <img src="/images/contact-visual.jpg" alt="Contact Visual" />
+        <div class="accent-circle"></div> </div>
+    </div>
+  </div>
+</section>

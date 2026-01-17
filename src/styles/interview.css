@@ -1,0 +1,94 @@
+.interview-section {
+  background-color: #ff7a18; /* メインのオレンジ色 */
+  padding: 100px 24px;
+}
+
+.interview-title {
+  text-align: center;
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* タイトルの下の白い線 */
+.interview-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: #fff;
+  margin: 20px auto 0;
+}
+
+.interview-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.interview-card {
+  background-color: rgba(0, 0, 0, 0.1); /* カードの背景を少し暗く */
+  width: 100%;
+  max-width: 380px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 30px 20px;
+  color: #fff;
+}
+
+.role {
+  font-size: 14px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.affiliation {
+  font-size: 15px;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+/* ボタンのデザイン */
+.interview-btn {
+  display: block;
+  text-align: center;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.interview-btn:hover {
+  background: #fff;
+  color: #ff7a18; /* 文字がオレンジに */
+}
+
+/* スマホ対応 */
+@media (max-width: 900px) {
+  .interview-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}

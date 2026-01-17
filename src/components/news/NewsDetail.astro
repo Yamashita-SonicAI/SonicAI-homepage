@@ -1,0 +1,18 @@
+---
+// src/components/news/NewsDetail.astro
+const { item } = Astro.props;
+---
+
+<article class="news-detail">
+  <header>
+    <div class="meta">{item.date} | {item.category}</div>
+    <h1>{item.title}</h1>
+    <img src={item.image} alt="" />
+  </header>
+  <div class="body" set:html={item.body} />
+</article>
+
+<style>
+  .news-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+  .body { line-height: 1.8; white-space: pre-wrap; }
+</style>

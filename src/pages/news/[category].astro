@@ -1,0 +1,26 @@
+---
+// src/pages/news/[category].astro
+import Layout from "../../layouts/Layout.astro";
+import NewsList from "../../components/news/NewsList.astro";
+import { newsData } from "../../data/news";
+
+// 1. どのカテゴリーのページを作るかをAstroに教える
+export function getStaticPaths() {
+  const categories = ["プレスリリース", "お知らせ", "メディア掲載"];
+  
+  return categories.map((cat) => ({
+    params: { category: cat }, // URLになる部分 (例: /news/プレスリリース)
+    props: { categoryName: cat }, // コンポーネントに渡すデータ
+  }));
+}
+
+// 2. URLパラメータからカテゴリー名を取得
+const { categoryName } = Astro.props;
+
+// 3. 全データの中から、このカテゴリーに一致するものだけを絞り込む
+const filteredNews = newsData.filter((item) => item.category === categoryName);
+---
+
+<Layout title={`${categoryName}一覧 | SonicAI`}>
+  <NewsList news={filteredNews} currentCategory={categoryName} />
+</Layout>

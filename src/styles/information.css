@@ -1,0 +1,77 @@
+/* 共通コンテナ */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ヘッダー */
+.Info-header {
+  background-color: #000;
+  color: #fff;
+  padding: 80px 0;
+}
+
+.Info-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ナビゲーション */
+.Info-nav {
+  background-color: #000;
+  border-bottom: 1px solid #333;
+}
+
+.Info-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+}
+
+.Info-nav li {
+  padding: 20px 0;
+}
+
+.Info-nav a {
+  text-decoration: none;
+  color: #999;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.Info-nav li.active a {
+  color: #ff7a18; /* オレンジ色 */
+}
+
+/* 会社情報リスト */
+.Info-content {
+  padding: 80px 0;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  padding: 30px 0;
+  border-bottom: 1px solid #eee; /* 薄い下線 */
+}
+
+.info-item dt {
+  color: #ff7a18; /* 項目名をオレンジに */
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.info-item dd {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}

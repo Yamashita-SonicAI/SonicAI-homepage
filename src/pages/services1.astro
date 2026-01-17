@@ -1,0 +1,123 @@
+<section class="product-service">
+  <div class="container">
+    <h2 class="section-title">ソニックAIが提供するプロダクト/サービス</h2>
+    
+    <div class="panel-container">
+      <div class="panel hardware">
+        <div class="panel-content">
+          <div class="icon hardware-icon">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+             </svg>
+          </div>
+          <h3>GPUエッジデバイス<br>ハードウェア開発事業</h3>
+        </div>
+      </div>
+
+      <div class="panel software">
+        <div class="panel-content">
+          <div class="icon software-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+            </svg>
+          </div>
+          <h3>AIソフトウェア<br>開発事業</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-service {
+    background-color: #000; /* 背景は黒 */
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .section-title {
+    color: #ff6600; /* タイトルはオレンジ */
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    letter-spacing: 0.05em;
+  }
+
+  .panel-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 400px; /* パネルの高さ */
+  }
+
+  .panel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    /* 背景画像の指定（実際の画像パスに書き換えてください） */
+    background-image: url('/images/office-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* オレンジのオーバーレイ（左側） */
+  .hardware::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(255, 102, 0, 0.85); /* 透明度のあるオレンジ */
+  }
+
+  /* ブルーのオーバーレイ（右側） */
+  .software::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 51, 153, 0.85); /* 透明度のあるブルー */
+  }
+
+  .panel-content {
+    position: relative; /* オーバーレイより上に表示 */
+    z-index: 1;
+  }
+
+  .icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #fff;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ホバー演出（お好みで） */
+  .panel:hover {
+    filter: brightness(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .panel-container {
+      flex-direction: column;
+      height: auto;
+    }
+    .panel {
+      height: 300px;
+    }
+  }
+</style>

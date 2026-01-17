@@ -1,0 +1,37 @@
+---
+// src/components/news/HomeNews.astro
+import { newsData } from "../../data/news";
+const recentNews = newsData.slice(0, 3); // 最新3件
+---
+
+<section class="home-news-section">
+  <div class="container">
+    <div class="header">
+      <h2>NEWS</h2>
+      <a href="/news" class="view-all">一覧を見る</a>
+    </div>
+    <div class="news-list-simple">
+      {recentNews.map(item => (
+        <a href={`/news/${item.id}`} class="simple-item">
+          <time>{item.date}</time>
+          <span class="cat">{item.category}</span>
+          <p>{item.title}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-news-section { padding: 80px 0; background: #f9f9f9; }
+  .simple-item { 
+    display: flex; 
+    gap: 20px; 
+    padding: 20px 0; 
+    border-bottom: 1px solid #ddd; 
+    text-decoration: none; 
+    color: #333;
+  }
+  .simple-item:hover p { text-decoration: underline; }
+  .cat { font-size: 11px; background: #333; color: #fff; padding: 2px 8px; height: fit-content; }
+</style>

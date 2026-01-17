@@ -1,0 +1,173 @@
+---
+// src/components/services/ServiceSection.astro
+---
+
+<section class="flux-service-section">
+  <div class="flux-container">
+    <div class="flux-section-header">
+      <div class="flux-header-content">
+        <h1>私たちのサービス</h1>
+        <p class="flux-en-text">Our Service</p>
+      </div>
+      <a href="/services" class="flux-btn-primary">
+        サービスを見る →
+      </a>
+    </div>
+
+    <div class="flux-service-card">
+      <div class="flux-text-content">
+        <h2>FLUX Insight</h2>
+        <p class="flux-sub-text">事業変革支援</p>
+        <p class="flux-description">
+          エンタープライズ企業のAI戦略を中心に、事業変革に必要な戦略立案から実行・改善までを支援するAIコンサルティングサービスです。<br />
+          AIワークフロー構築プロダクト「FLUX Workflow」などを活用しながらビジネスKPIを達成する支援を行います。
+        </p>
+        <a href="/services/flux-insight" class="flux-btn-secondary">
+          FLUX Insightについて詳しく知る →
+        </a>
+      </div>
+      <div class="flux-image-content">
+        <img src="/pictures/software.png" alt="FLUX Insight" />
+      </div>
+    </div>
+
+    <div class="flux-service-card">
+      <div class="flux-text-content">
+        <h2>Hardware 開発</h2>
+        <p class="flux-sub-text">ハードウェアソリューション</p>
+        <p class="flux-description">
+          最新のAIアルゴリズムを最適に動作させるための専用ハードウェアの設計・開発を行います。
+          エッジコンピューティングから大規模サーバーまで、用途に合わせた最適なデバイスを提供し、業務の高速化を実現します。
+        </p>
+        <a href="/services/hardware" class="flux-btn-secondary">
+          Hardware開発について詳しく知る →
+        </a>
+      </div>
+      <div class="flux-image-content">
+        <img src="/pictures/hardware.png" alt="Hardware開発" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* 全体レイアウト */
+  .flux-service-section {
+    padding: 100px 0;
+    background-color: #f8f8f8;
+  }
+
+  .flux-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* セクションヘッダー */
+  .flux-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .flux-section-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+    letter-spacing: -0.02em;
+  }
+
+  .flux-en-text {
+    font-size: 18px;
+    color: #2563eb;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .flux-btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+
+  /* サービスカード共通設定 */
+  .flux-service-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+    background-color: white;
+    padding: 80px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    margin-bottom: 40px; /* カード同士の間隔 */
+  }
+
+  .flux-service-card h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #333;
+  }
+
+  .flux-sub-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 24px;
+  }
+
+  .flux-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+  }
+
+  .flux-btn-secondary {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+  }
+
+  .flux-btn-secondary:hover, .flux-btn-primary:hover {
+    background-color: #1d4ed8;
+  }
+
+  .flux-image-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 992px) {
+    .flux-service-card {
+      grid-template-columns: 1fr;
+      padding: 40px;
+      gap: 40px;
+    }
+    .flux-image-content {
+      order: -1; /* スマホでは画像を先に表示 */
+    }
+  }
+  
+</style>
