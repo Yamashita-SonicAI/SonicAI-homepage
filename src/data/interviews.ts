@@ -15,7 +15,7 @@ export const interviewData: Interview[] = [
     name: "Yamashita Ryoto",
     role: "エンジニア職（正社員）",
     affiliation: "SonicAI AI開発本部所属",
-    image: "/images/member1.jpg",
+    image: "/images/yamashita.jpg",
     link: "/interview/yamashita1",
     body: `
       ここにインタビューの本文を書きます。
@@ -25,18 +25,18 @@ export const interviewData: Interview[] = [
   {
     id: "narumi",
     name: "Narumi Taiyo",
-    role: "フロントエンドエンジニア（学生インターン）",
+    role: "フロントエンドエンジニア（インターン）",
     affiliation: "東京大学大学院に在籍",
-    image: "/images/member2.jpg",
+    image: "/images/narumi.jpg",
     link: "/interview/narumi",
     body: "鳴海さんのインタビュー本文"
   },
   {
     id: "yamada",
     name: "Yamada Yoshiki",
-    role: "バックエンドエンジニア（学生インターン）",
+    role: "バックエンドエンジニア（インターン）",
     affiliation: "筑波大学大学院に在籍",
-    image: "/images/member3.jpg",
+    image: "/images/yamada.jpg",
     link: "/interview/yamada",
     body: "山田さんのインタビュー本文"
   }
