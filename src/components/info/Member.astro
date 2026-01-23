@@ -23,9 +23,9 @@ import Layout from "../layouts/Layout.astro";
 <section class="member-page">
   <div class="hero-banner">
     <div class="container">
-      <div class="icon-box">
+      {/*<div class="icon-box">
         <img src="/icons/members.svg" alt="Members Icon" />
-      </div>
+      </div>*/}
       <p class="banner-text">
         SonicAIは、AI、機械学習、ビジネス戦略に強みを持つメンバーで形成されており、豊富な製造現場での業界経験を活かして革新的な社会実装ソリューションを提供するスタートアップです。
       </p>
@@ -45,13 +45,15 @@ import Layout from "../layouts/Layout.astro";
           <p>慶應義塾大学経済学部卒業後、</p>
           <p>新卒でキーエンスにて画像処理システムの技術営業に従事。</p>
           <p>その後、米国経営コンサルファームのA.T.カーニーにて複数の製造業領域のプロジェクトに参画し、2024年6月に、日本の製造業のポテンシャルを開放するべく、株式会社SonicAIを設立</p>
+          <p>&nbsp</p>
         </div>
       </div>
       <div class="member-photo">
-        <img src="/pictures/ceo.jpg" alt="pic1" />
+        <img src="/images/ceo.jpg" alt="pic1" />
       </div>
     </div>
 
+    <p>&nbsp</p>
     <div class="member-card">
       <div class="member-info">
         <div class="member-header">
@@ -66,7 +68,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
       <div class="member-photo">
-        <img src="/pictures/ceo.jpg" alt="pic1" />
+        <img src="/images/kimusan.jpg" alt="pic2" />
       </div>
     </div>
 
@@ -85,9 +87,7 @@ import Layout from "../layouts/Layout.astro";
           <p>SonicAIでは、こうしたバックグラウンドを活かし、フロントエンドUIの設計・実装、サーバー構築、さらにはハードウェア選定まで幅広い領域を担当。ソフトウェアとハードウェアの双方にまたがる横断的な技術力で、プロダクト開発に貢献している</p>
         </div>
       </div>
-      <div class="member-photo">
-        <img src="/pictures/ceo.jpg" alt="pic1" />
-      </div>
+      
     </div>
   </div>
 </section>
@@ -97,13 +97,14 @@ import Layout from "../layouts/Layout.astro";
   .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 10px;
   }
+
 
   /* オレンジのバナー部分 */
   .hero-banner {
     background-color: #ff6600; /* SonicAIオレンジ */
-    padding: 80px 0;
+    padding: 40px 0;
     color: #fff;
     text-align: center;
   }
@@ -126,15 +127,21 @@ import Layout from "../layouts/Layout.astro";
     letter-spacing: 0.05em;
   }
 
+  .member-page{
+    padding: 0px 0px;
+    padding-bottom: 0px;
+  }
   /* メンバー詳細部分 */
   .member-content {
-    padding: 100px 0;
+    padding: 40px 0px;
+    padding-bottom: 0px; 
   }
 
   .category-title {
     font-size: 28px;
     font-weight: 700;
     color: #ff6600;
+    margin: 10px;
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
@@ -145,7 +152,7 @@ import Layout from "../layouts/Layout.astro";
     grid-template-columns: 1fr 320px; /* テキストと写真の比率 */
     gap: 60px;
     align-items: flex-start;
-    margin-top: 40px;
+    margin: 40px;
   }
 
   .member-header {
@@ -186,6 +193,9 @@ import Layout from "../layouts/Layout.astro";
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     display: block;
+    aspect-ratio: 16/14;
+    object-fit: cover;
+    object-position: center;
   }
 
   /* レスポンシブ (スマホ表示) */
@@ -194,6 +204,11 @@ import Layout from "../layouts/Layout.astro";
       font-size: 18px;
       padding: 0 20px;
     }
+
+    .container member-content{
+    padding-top: 10px; !important;
+    padding-bottom: 20px;
+  }
 
     .member-card {
       grid-template-columns: 1fr; /* 縦並びに */

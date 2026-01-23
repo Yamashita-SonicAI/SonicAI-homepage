@@ -1,0 +1,308 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" alt="SonicAI" />
+      </a>
+    </div>
+    
+    <button class="menu-toggle" aria-label="メニュー開閉">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/">Home</a></li>
+        
+        <li class="nav-item has-dropdown">
+          <div class="nav-item-header">
+            <a href="/Info/info">Information</a>
+            <button class="dropdown-icon" aria-label="開閉"></button>
+          </div>
+          <ul class="dropdown">
+            <li><a href="/Info/info">会社概要</a></li>
+            <li><a href="/Info/Member">メンバー</a></li>
+            <li><a href="/Info/MessageCEO">代表挨拶</a></li>
+            <li><a href="/Info/Philosophy">企業理念</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a href="/news/すべて/1">News</a></li>
+        <li class="nav-item"><a href="/work-with-sonicai">SonicAIで働く</a></li>
+        <li class="nav-item"><a href="/contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+/* --- 共通・PCベース --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-header.is-scrolled .nav-item a { color: #333; }
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 80px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.dropdown-icon { display: none; } /* PCでは隠す */
+
+/* --- PC用ドロップダウン (1025px〜) --- */
+@media (min-width: 1025px) {
+  .nav-item.has-dropdown { position: relative; }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+    list-style: none;
+    z-index: 10;
+  }
+
+  .nav-item.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .dropdown a:hover {
+    background-color: #f5f7fa;
+    color: #ff6600;
+  }
+}
+
+/* --- スマホ・全画面アコーディオン (〜1024px) --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: #333; /* 背景白でも見えるように */
+  transition: 0.3s;
+}
+
+@media (max-width: 1024px) {
+  .menu-toggle { display: flex; }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -300 px;
+    width: 300 px;
+    height: 100 vh;
+    background-color: #fff; /* 全画面白背景 */
+    padding: 80px 0 40px;   /* 上下の余白 */
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.15); /* 左側に影を落とす */
+    overflow-y: auto;
+    visibility: hidden;
+    z-index: 1050;
+  }
+
+  .nav.is-open {
+    right: 0;
+    visibility: visible;
+  }
+
+  .header-inner::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1040; /* メニュー(1050)より下、ヘッダー(1000)より上 */
+    pointer-events: none; /* 閉じてる時はクリック無効 */
+  }
+
+  :global(.site-header.is-open) .header-inner::before,
+  :global(.nav.is-open) + .header-background-overlay { /* 構造によるがJSでのクラス付与が確実 */
+     /* 簡易的な実装として、bodyにoverflow:hiddenがかかるタイミングを利用 */
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* リスト項目のスタイル（PCのスタイルを上書き） */
+  .nav-item {
+    border-bottom: 1px solid #eee; /* 薄い区切り線 */
+    width: 100%;
+  }
+
+  /* リンクの基本スタイル（InformationやHomeなど） */
+  .nav-item > a,
+  .nav-item-header a {
+    display: block;
+    color: #333 !important; /* 強制的に黒 */
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ドロップダウンを持つ項目のヘッダー調整 */
+  .nav-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Informationの文字部分 */
+  .nav-item-header a {
+    flex: 1; /* 横幅いっぱい使わせる */
+    padding-right: 60px; /* ボタンと重ならないように */
+  }
+
+  /* ＋ボタンのデザイン */
+  .dropdown-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* タップしやすい大きさ */
+    height: 100%;
+    background: none;
+    border: none;
+    border-left: 1px solid #eee; /* ボタンの左に区切り線 */
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .dropdown-icon::before, .dropdown-icon::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: #0047ff; /* FLUX風の青（または #ff6600） */
+    transition: 0.3s;
+  }
+  .dropdown-icon::after { transform: rotate(90deg); } /* 縦棒を作って＋にする */
+  
+  /* 開いている時は－にする */
+  .nav-item.is-active .dropdown-icon::after { transform: rotate(0deg); }
+
+  /* ドロップダウンの中身 */
+  .dropdown {
+    display: none;
+    background-color: #f9f9f9; /* 薄いグレー背景 */
+    padding: 10px 0;
+    list-style: none;
+  }
+
+  .nav-item.is-active .dropdown { display: block; }
+
+  /* サブメニューのリンク */
+  .dropdown li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #666 !important;
+    padding: 14px 24px 14px 40px; /* 左を少し空けて階層感を出す */
+    border-bottom: 1px solid #eee;
+  }
+
+  /* サブメニューの右矢印（>） */
+  .dropdown li a::after {
+    content: "›";
+    font-size: 18px;
+    color: #0047ff; /* アクセントカラー */
+    transform: rotate(90deg); /* 必要なら角度調整 */
+  }
+}
+</style>
+<script>
+  const initMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    const dropdownHeaders = document.querySelectorAll('.has-dropdown .nav-item-header');
+
+    // ハンバーガー開閉
+    menuToggle?.addEventListener('click', () => {
+      menuToggle.classList.toggle('is-active');
+      nav?.classList.toggle('is-open');
+      document.body.style.overflow = nav?.classList.contains('is-open') ? 'hidden' : 'auto';
+    });
+
+    // アコーディオン開閉 (スマホ時のみ)
+    dropdownHeaders.forEach(header => {
+      header.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1024) {
+          // リンク自体のページ遷移を止める場合は e.preventDefault()
+          const parent = header.parentElement;
+          parent?.classList.toggle('is-active');
+        }
+      });
+    });
+  };
+
+  initMenu();
+  document.addEventListener('astro:after-swap', initMenu);
+</script>

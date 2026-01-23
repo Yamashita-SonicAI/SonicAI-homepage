@@ -49,7 +49,7 @@ const jobCategories = [
 
 <section class="work-domain-section">
   <div class="work-visual-container">
-    <img src="/images/your-team-photo.jpg" alt="ワーク領域イメージ" class="work-hero-img" />
+    {/*<img src="/images/your-team-photo.jpg" alt="ワーク領域イメージ" class="work-hero-img" />*/}
     <div class="work-label-wrapper">
       <h2 class="work-label-title">ソニックAIで活躍する機会</h2>
     </div>
@@ -63,7 +63,6 @@ const jobCategories = [
   </div>
 </section>
 
-<section class="career-section">
 <section class="career-section">
   <div class="career-intro">
     <p>各職種をクリックして詳細を確認してください</p>
@@ -264,10 +263,26 @@ const jobCategories = [
       flex-direction: column;
     }
     .category-column {
-      min-height: 600px;
+      min-height: 400px; /* スマホなら少し低くてもOK */
     }
     .category-title {
       font-size: 2rem;
+    }
+
+    .work-label-wrapper {
+      width: 90%;       /* 画面幅の90%に収める */
+      padding: 15px 20px; /* 左右の余白を60pxから20pxに減らす */
+      bottom: -20px;    /* 位置を少し調整 */
+    }
+
+    .work-label-title {
+      font-size: 1.2rem; /* 文字サイズを小さく */
+      white-space: normal; /* 必要なら改行させる */
+    }
+    
+    /* 背景固定(パララックス)はスマホでバグりやすいので解除推奨 */
+    .category-column {
+      background-attachment: scroll; 
     }
   }
 </style>
