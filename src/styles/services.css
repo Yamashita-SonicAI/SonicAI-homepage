@@ -1,0 +1,134 @@
+.service-section {
+  max-width: none;
+  margin: 0 auto;
+  padding: 80px 0px;
+}
+
+.service-section h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+.service-header-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-top: 50px;
+}
+
+.service-header-button:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+
+.service-section h4 {
+  margin-top: 0 !important;    /* 強制的に上の余白を 0 にする */
+  margin-bottom: 24px;         /* 下のコンテンツとの距離 */
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;         /* 文字と線の間の隙間 */
+  font-size: 18px;             /* サイズはお好みで */
+  font-weight: 600;
+}
+
+.service-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px; /* 60pxは広すぎる可能性があるので少し詰めました */
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 40px;
+  box-sizing: border-box; /* これが抜けているとpadding分右に突き出します */
+  overflow: hidden;       /* 子要素のはみ出しを強制カット */
+}
+
+.service-card img {
+  width: 100%;       /* 親要素の幅いっぱいに広げる */
+  max-width: none;  /* 大きくなりすぎないように制限（お好みで調整） */
+  height: auto;      /* 比率を維持 */
+  border-radius: 8px; /* 角を少し丸くすると綺麗です */
+  /*object-fit: contain;  枠に合わせて綺麗に収める */
+
+}
+
+.service-text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.service-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.service-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.service-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.service-link:hover {
+  opacity: 0.85;
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* 各アイテムの幅を確定させる */
+.service-item {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card:nth-child(even) {
+    direction: ltr;
+  }
+  .service-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+}
+
+.service-slider-viewport {
+  width: 100%;
+  overflow-x: hidden; /* これで右側の空白スクロールを強制停止します */
+}

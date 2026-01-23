@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+
+  <header class="Info-header">
+    <div class="container">
+      <h1>代表ご挨拶</h1>
+    </div>
+  </header>
+
+  <nav class="Info-nav">
+    <div class="container">
+      <ul>
+        <li><a href="info">会社概要</a></li>
+        <li><a href="Member">メンバー</a></li>
+        <li class="active"><a href="MessageCEO">代表ご挨拶</a></li>
+        <li><a href="Philosophy">企業理念</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<section class="message-section">
+  <div class="container">
+    <div class="message-hero">
+      <div class="ceo-photo-wrapper">
+        <img src="/images/ceo.jpg" alt="代表取締役 田中寛之" class="ceo-photo" />
+      </div>
+      <div class="catchphrase">
+        <h2>属人化した製造プロセスの改革を通じて、持続可能な産業の未来の創出に尽力してまいります。</h2>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="message-body">
+      <p>
+        私は東京都大田区、京浜工業地帯の中心で育ち、幼少期より町工場に囲まれた環境の中で、中小製造業の営みを身近に感じ幼少期を過ごしました。
+      </p>
+      <p>
+        大学卒業後、キーエンスにて画像処理システムの法人営業を担当し、製造現場に数多く足を運びました。そこで目の当たりにしたのは、大手メーカーにおける自動化の高度化と、中小企業との間に広がる大きな格差でした。大量生産を前提とした大企業では、6軸ロボットやAGV（無人搬送車）を活用した搬送の自動化や、画像処理カメラを組み込んだ全自動検査システムの導入が進む一方、少量多品種生産を担う中小製造業では、製品ごとに最適なライン設計が困難で、搬送工程は依然として人手に頼り、検査も目視による属人的な全数検査に依存していました。
+      </p>
+      <p>
+        そうした現場では、人材不足が慢性化する中で、納入先からの品質要求の高まりが経営を圧迫し、高い技術力があるにも関わらず企業の持続的成長が困難な状況にあることを強く実感しました。
+      </p>
+      <p>
+        その後、A.T.カーニーにて、下請け中小企業が製造業全体において不可欠な役割を担っているにもかかわらず、納入先に対して構造的に不利な立場から価格交渉を強いられ、利益が圧迫されている現実を目の当たりにしました。このままでは、日本の中小製造業、ひいては日本の製造業全体の競争力が消失する危機感を強く抱くようになりました。
+      </p>
+      <p>
+      こうした原体験から私は、ソフトウェアとハードウェアを融合させたテクノロジーによって、これまで自動化が困難だった製造現場の根本的な課題に挑むことを決意しました。
+      </p>
+      <p>
+        当社SonicAIでは、次世代ロボティクス技術を活用した柔軟な搬送の自動化と、機械学習・ディープラーニングを用いた教師なし学習による画像検査の自動化を組み合わせることで、少量多品種・非連続工程を特徴とする製造現場における人材不足や品質課題の解決を目指しています。検査と搬送を統合したスマートアプリケーションとして展開することで、業務の属人化を解消し、製造業全体の底上げに貢献します。
+      </p>
+      <p>
+        私たちは、日本発のテクノロジーでグローバル市場に革新をもたらし、製造業に新たな価値を創出するとともに、産業構造そのものを変革する新たなエコシステムの創出を目指します。「失われた30年」を取り戻し、日本が再び世界を牽引する産業国家として輝けるよう、社会的使命感を持って挑戦し続けてまいります。
+      </p>
+    </div>
+    <div class="name">
+      <p>
+        代表取締役CEO　<br/>田中寛之
+      </p>
+  </div>
+</section>
+
+<style>
+  .message-section {
+    padding: 50px 0px 0px;
+    background-color: #fff;
+  }
+
+  .container {
+    max-width: 900px; /* メッセージページは少し細めが読みやすいです */
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* 上部レイアウト */
+  .message-hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .ceo-photo-wrapper {
+    flex-shrink: 0;
+  }
+
+  .ceo-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%; /* 正円にする */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .catchphrase h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  /* 区切り線 */
+  .section-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 60px;
+  }
+
+  /* 本文 */
+  .message-body {
+    color: #444;
+    line-height: 2.2; /* 行間を広めに取って可読性を高める */
+    font-size: 16px;
+  }
+
+  .message-body p {
+    margin-bottom: 2em; /* 段落間の余白 */
+  }
+  .name p {
+    text-align: right;
+    font-size: 32px;
+  }
+
+  /* レスポンシブ (スマホ表示) */
+  @media (max-width: 768px) {
+    .message-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .ceo-photo {
+      width: 180px;
+      height: 180px;
+    }
+
+    .catchphrase h2 {
+      font-size: 22px;
+    }
+
+    .container {
+      padding: 0 24px;
+    }
+  }
+</style>

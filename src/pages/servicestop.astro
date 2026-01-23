@@ -1,0 +1,138 @@
+---
+import ServiceCard from "../components/services/ServicesCard.astro";
+import { services } from "../data/services";
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="Services | SonicAI">
+  <main>
+    <section class="services-hero">
+      <div class="container">
+        <span class="sub-title">サービス</span>
+        <h1 class="main-title">Services</h1>
+        
+        <nav class="service-nav">
+          <ul>
+            <li><a href="#insight"><span class="icon"></span>Sonic Insight</a></li>
+            <li><a href="#agent"><span class="icon"></span>Sonic Agent</a></li>
+            <li><a href="#stream"><span class="icon"></span>Sonic AutoStream</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <div class="service-slider-viewport">
+    <div class="service-list">
+      {services.map(service => (
+        <div class="service-item">
+          <ServiceCard {...service} />
+        </div>
+      ))}
+    </div>
+  </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* --- 1. ページ全体の設定 --- */
+  main {
+    background-color: #f2f2f2;
+    color: #1a1a1a;
+  }
+
+  /* --- 2. ヒーローセクション（左寄せを強制） --- */
+  .services-hero {
+    padding: 120px 0 100px; /* ヘッダーとの被り解消 */
+    background-color: #1a1a1a;
+    text-align: left; /* 中央寄せを解除 */
+  }
+
+  .services-hero .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: block; /* Flexによる中央寄せを解除 */
+  }
+
+  .main-title {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 60px 0;
+    color: #f9f9f9;
+  }
+
+  /* --- 3. カードリスト（ここが中央に寄る原因） --- */
+  .service-slider-viewport {
+    width: 100%;
+    padding: 80px 0;
+  }
+
+  .service-list {
+    display: flex !important;
+    flex-direction: column !important; /* 横並びを防ぐ */
+    align-items: center !important;    /* カード自体を中央へ */
+    gap: 60px;
+    width: 100%;
+  }
+
+  .service-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* --- 4. ServiceCard 内部のスタイル（is:globalが必要な部分） --- */
+  .service-card {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr !important; /* 横並びレイアウト */
+    gap: 60px;
+    align-items: center;
+    
+    width: 90% !important;
+    max-width: 1100px !important;
+    background-color: #ffffff !important;
+    padding: 60px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+  }
+
+  .service-card img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* サービスナビ */
+  .service-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+  }
+  .service-nav a {
+    text-decoration: none;
+    color: #f9f9f9;
+    font-weight: 700;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    background-color: #ff6600;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 900px) {
+    .service-card {
+      grid-template-columns: 1fr !important;
+      padding: 30px !important;
+    }
+    .main-title { font-size: 4rem; }
+  }
+</style>

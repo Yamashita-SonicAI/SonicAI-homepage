@@ -1,0 +1,119 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" alt="SonicAI" />
+      </a>
+    </div>
+    
+    <nav class="nav">
+      <ul class="nav-list">
+        {/*<li class="nav-item">
+          <a href="/servicestop">Services</a>
+
+          <!-- ドロップダウン -->
+          <ul class="dropdown">
+            <li><a href="/services/ai">AI開発</a></li>
+            <li><a href="/services/iot">IoT</a></li>
+            <li><a href="/services/robotics">ロボティクス</a></li>
+          </ul>
+        </li>*/}
+
+        <li class="nav-item">
+          <a href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/Info/info">Information</a>
+          <ul class="dropdown">
+            <li><a href="/Info/info">会社概要</a></li>
+            <li><a href="/Info/Member">メンバー</a></li>
+            <li><a href="/Info/MessageCEO">代表挨拶</a></li>
+            <li><a href="/Info/Philosophy">企業理念</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="/news/すべて/1">News</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/work-with-sonicai">SonicAIで働く</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/contact">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+</header>
+
+<style>
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 80px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* ドロップダウン本体 */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  padding: 8px 0; /* 上下のパディングを少し調整 */
+  min-width: 180px;
+  list-style: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 8px; /* 角を丸く */
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  overflow: hidden; /* 背景色が角からはみ出さないように */
+}
+
+/* ホバー時に表示 */
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: #f5f7fa; /* 薄いグレーの背景 */
+  color: #ff6600;           /* 文字色をブランドカラーの青に（お好みで調整） */
+  transition: background-color 0.2s ease; /* 変化を滑らかに */
+}
+</style>

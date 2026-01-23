@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+
+  <header class="Info-header">
+    <div class="container">
+      <h1>企業理念</h1>
+    </div>
+  </header>
+
+  <nav class="Info-nav">
+    <div class="container">
+      <ul>
+        <li><a href="info">会社概要</a></li>
+        <li><a href="Member">メンバー</a></li>
+        <li><a href="MessageCEO">代表ご挨拶</a></li>
+        <li class="active"><a href="Philosophy">企業理念</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<section class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-header">
+      <p class="category-label">企業理念</p>
+      <h2>「人間にしかできない仕事」を未来へつなぐ</h2>
+    </div>
+
+    <div class="philosophy-body">
+      <p class="lead">
+        私たちの使命は、すべての人がより創造的で、人間にしかできない価値を最大限に発揮できる社会を実現することです。
+      </p>
+
+      <p>
+        私たちの目的は単なる業務の効率化や、人材不足問題の解決による製造業の持続性を担保することにとどまりません。その先にあるのは、人が「人間にしかできない仕事」に集中できる環境の創出です。創造、判断、共感、倫理——それらは人間固有の価値であり、私たちはテクノロジーこそが、それらの能力を最大限に引き出すための手段であると考えています。
+      </p>
+
+      <p>
+        人手不足の解消というと、効率性や削減といった冷たい響きに捉えられるかもしれません。しかしその本質は、人がより付加価値の高い仕事に挑み、働くことそのものに喜びや誇りを感じられる社会の実現にあります。テクノロジーを通じて、人間の本質的な価値を再定義し、創造性が尊重される未来を築く。それが、私たちSonicAIの目指す社会です。
+      </p>
+    </div>
+
+    <div class="philosophy-image">
+      <img src="/images/yousu.jpg" alt="製造現場の様子" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .philosophy-section {
+    padding: 30px 0;
+    padding-bottom: 20px;
+    background-color: #fff;
+  }
+
+  .container {
+    max-width: 900px; /* 読みやすさを重視した幅 */
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* 見出し */
+  .philosophy-header {
+    margin-bottom: 60px;
+  }
+
+  .category-label {
+    color: #ff6600; /* SonicAIオレンジ */
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .philosophy-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  /* 本文 */
+  .philosophy-body {
+    font-size: 17px;
+    line-height: 2.2;
+    color: #444;
+    margin-bottom: 80px;
+  }
+
+  .philosophy-body p {
+    margin-bottom: 2.5em;
+  }
+
+  .lead {
+    font-weight: 700;
+    font-size: 19px;
+    color: #333;
+  }
+
+  /* 画像 */
+  .philosophy-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .philosophy-image img {
+   width: 100%;             /* これを削除または変更 */
+   width: 80%;              /* 好きな幅に設定（例：80%） */
+   max-width: 600px;        /* 最大幅を決めておくと大きな画面で広がりすぎません */
+   margin: 0 auto;          /* 左右の余白を自動にして中央寄せ */
+   height: 500px;
+   object-fit: cover;
+   display: block;          /* margin: auto を効かせるために必須 */
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 24px;
+    }
+
+    .philosophy-header h2 {
+      font-size: 28px;
+    }
+
+    .philosophy-body {
+      font-size: 16px;
+    }
+
+    .philosophy-image img {
+      height: 300px;
+    }
+  }
+</style>

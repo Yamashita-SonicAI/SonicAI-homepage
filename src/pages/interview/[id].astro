@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+// { interviewData } として、export名と一致させる必要があります
+import { interviewData } from "../../data/interviews";
+
+export function getStaticPaths() {
+  // interviewDataが空でないか確認しながらループ
+  return interviewData.map((member) => ({
+    params: { id: member.id },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<Layout title={`${member.name} | インタビュー`}>
+  <article class="interview-article">
+    <header class="article-hero">
+      <img src={member.image} alt="" />
+      <div class="hero-info">
+        <p>{member.role}</p>
+        <h1>{member.name}</h1>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="body-text">
+        {member.body}
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .interview-article {
+    display: flex; /* 左右に並べる */
+    min-height: 100vh;
+  }
+
+  .article-hero {
+    flex: 1;
+    position: sticky; /* スクロールしても画像を固定 */
+    top: 0;
+    height: 100vh;
+  }
+
+  .article-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を枠いっぱいに広げる */
+  }
+
+  .hero-info {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    z-index: 10;
+  }
+
+  .article-content {
+    flex: 1; /* 右側のテキストエリア */
+    padding: 100px 60px;
+    background-color: #fff;
+  }
+
+  .body-text {
+    white-space: pre-wrap;
+    line-height: 2.2;
+    font-size: 18px;
+    color: #333;
+  }
+
+  /* スマホでは縦並びに戻す */
+  @media (max-width: 900px) {
+    .interview-article {
+      flex-direction: column;
+    }
+    .article-hero {
+      position: relative;
+      height: 50vh;
+    }
+  }
+</style>

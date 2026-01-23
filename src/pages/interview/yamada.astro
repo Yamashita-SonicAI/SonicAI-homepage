@@ -1,0 +1,212 @@
+---
+// UTF-8で保存されていることを確認してください
+import Layout from "../../layouts/Layout.astro";
+import { interviewData } from "../../data/interviews";
+
+const member = interviewData.find(d => d.id === "yamada");
+---
+
+<Layout title={`${member.name} インタビュー | SonicAI`}>
+  <article class="interview-post">
+    <div class="interview-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Interview with Yoshiki</h1>
+          <p class="hero-description">
+            {member.description} 筑波大学大学院 システム情報工学研究群に在籍。大学ではFPGAを用いた回路設計を専門とし、素粒子物理学実験における「実時間ミューオンビームモニタリングシステム」の構築と検証に従事。「研究とは異なる軸で技術的な視野を広げたい」という想いからSonicAIへインターンとして参画。現在はソフトウェア領域全般を担当し、AI画像処理の論文リサーチから実装、技術検証、製品化まで幅広く活躍している。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container interview-body">
+      
+      <section class="qa-block">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/yamada.jpg" alt="研究風景" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">まずは、これまでのバックグラウンドと、現在大学で研究している内容について教えてください。</h2>
+            <div class="answer">
+              <p>現在は筑波大学の大学院で、素粒子物理学実験に関連する研究を行っています。具体的には、「ミューオン」という素粒子を用いた物理実験やFPGA（書き換え可能な集積回路）を用いた回路設計を行い、実時間でのモニタリング検証に取り組んでいます。
+              非常に専門的でニッチな領域ですが、ハードウェアに近い低レイヤーの技術に触れることができる面白い分野です。SonicAIでは、このバックグラウンドを活かしつつ、主にソフトウェア領域全般を担当しています。具体的には、AI画像処理に関する最新論文のリサーチから、実際の技術検証、実装、評価、そして最終的な製品化のプロセスまでを一貫して取り組んでいます。</p>
+            </div>
+            <h2 class="question">大学での専門的な研究がある中で、なぜSonicAIを志望したのでしょうか？</h2>
+            <div class="answer">
+              <p>一番の理由は、「実務経験を通じて、技術的な知見を広げたい」と考えたからです。
+              大学での研究は非常に意義深いものですが、どうしても特定の狭い領域を極める活動になりがちです。就職活動を前にして、「研究とは別軸の技術分野を作り、視野を広げたい」という思いが強くなりました。
+              その中でSonicAIを選んだのは、もともと興味を持っていた「エッジコンピューティング」や「エッジAI」という領域に、ど真ん中で取り組んでいる企業だったからです。クラウドではなく、現場のデバイス側でAIを動かす技術に将来性を感じ、ここでなら自分の知らない新しい技術に触れられると確信しました。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-block qa-reverse">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/yamada-2.png" alt="チームミーティング" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">実際に働いてみて、研究室とのギャップや驚きはありましたか？</h2>
+            <div class="answer">
+              <p>良い意味でのギャップは、「教えてもらう（トレーニング）」というより、「自走する」スタイルだったことです。 一般的な技術系インターンは課題を与えられて学ぶ形式が多いですが、SonicAIでは「これどう思う？」「この機能実装できる？」といきなり実践的な問いを投げかけられます。
+              例えば、開発中にバグや課題に直面した際も、単に正解を聞くのではなく、「事象に対して技術的な論点を因数分解し、可能性の高そうな要素から仮説検証して解決する」というプロセスが求められます。 最初は戸惑いましたが、この経験のおかげで「自分で問いを立てる能力」や、未知の技術に対する解決能力が飛躍的に磨かれたと感じています。</p>
+            </div>
+            <h2 class="question">SonicAIのカルチャーや働き方について、どう感じていますか？</h2>
+            <div class="answer">
+              <p>「技術」と「ビジネス」の距離が驚くほど近いですね。 社員の方々と気軽に議論しながら業務を進められるのがとても楽しいです。技術的にわからないことを抱え込むことがありませんし、何より「なぜこの機能を実装するのか」という目的を、ビジネスサイドの小林さんや田中さんから直接インプットしてもらえるのがありがたいです。
+              そのおかげで、ただコードを書くだけでなく、「ユーザーがどう使うか」「この画像処理の前処理は実用的か」といった視点を持てるようになりました。 スピード感も想像以上です。自分がリサーチして実装した機能があっという間に形になり、顧客から良い反応をいただいて、実際に数百万円単位の売り上げにつながる。 「自分の技術力を上げる」という当初の目的を超えて、「自分が作ったコア技術が社会実装され、価値として認められる」という、研究だけでは得難い大きな喜びを感じることができました。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-block">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/yamashita-3.jpg" alt="今後のビジョン" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">今後の山田さんのビジョンを教えてください。</h2>
+            <div class="answer">
+              <p>まずは、現在進めている製品化のプロセスの中で、必要とされる技術を「広く、深く」学んでいきたいです。特にコンピュータービジョン領域でのAI技術については、論文などの最新情報をベースに、さらに手を動かして吸収していきたいと考えています。
+              将来的には、ただ技術に詳しいだけでなく、「困っている人に技術を届ける」ことができるエンジニアになりたいですね。SonicAIでの経験を通じて、技術は使われて初めて価値になると実感しました。自分が作ったものが、より多くの場所で、より深く社会の役に立つ未来を目指してチャレンジし続けたいです。</p>
+            </div>
+            <h2 class="question">最後に、SonicAIへの応募を検討している学生エンジニアの方へメッセージをお願いします。</h2>
+            <div class="answer">
+              <p>SonicAIは、学生であっても「お客様に本当に役に立つもの」を自分たちの手で作れる場所です。 技術的なインターンというと、スキルアップが主目的になりがちですが、ここではそれ以上に「自分の作ったものが売れる」「社会で使われる」という強烈な達成感を味わえます。
+              ・狭い領域だけでなく、幅広く技術に触れてみたい方
+              ・言われたことをやるだけでなく、自分で考えて自走したい方
+              そんな方にとっては、これ以上ない成長環境だと思います。熱意ある仲間と一緒に働けることを楽しみにしています！</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <aside class="other-members">
+      <div class="container">
+        <h2 class="section-title">他メンバーのインタビュー</h2>
+        <div class="member-grid">
+          {interviewData.filter(d => d.id !== "yamada").map(other => (
+            <div class="member-card">
+              <img src={other.image} alt={other.name} />
+              <div class="card-info">
+                <p class="card-role">{other.role}</p>
+                <h3 class="card-name">{other.name}</h3>
+                <p class="card-affi">{other.affiliation}</p>
+                <a href={other.link} class="btn-card">インタビューを読む</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  /* 基本設定 */
+.container { max-width: 1350px; margin: 0 auto; padding: 0 24px; }
+
+.qa-block { margin-bottom: 140px; }
+
+.interview-hero {
+    background-color: #ff6600; /* SonicAIのブランドカラー */
+    color: #ffffff;
+    /* ヘッダーとの重なりを防ぐため、上のpaddingを多めに設定 */
+    padding: 120px 0 80px 0; 
+    text-align: center;
+  }
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    /* 文字の読みやすさを確保 */
+    line-height: 1.2;
+  }
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 2.0;
+    max-width: 850px;
+    text-align: justify;
+    margin: 0 auto;
+  }
+
+  /* 横並びレイアウトのコア設定 */
+.qa-flex {
+    display: flex;
+    align-items: center; /* 上揃えがインタビューでは一般的 */
+    gap: 20px;
+  }
+
+
+
+.qa-image { flex: 1.2; }
+.qa-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+.qa-text { flex: 1.2; }
+
+  /* 交互配置の設定 */
+  .qa-reverse .qa-flex {
+    flex-direction: row-reverse;
+  }
+
+  /* テキストの装飾 */
+.question {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-top: 100;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    border-left: 8px solid #ff6600; /* SonicAIオレンジ */
+    padding-left: 24px;
+  }
+
+.answer p {
+    font-size: 12px;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1.5em;
+  }
+
+.answer p { font-size: 17px; line-height: 2.0; color: #444; margin-bottom: 1.5em; }
+
+  /* 他メンバー紹介（オレンジエリア） */
+  .other-members { background-color: #ff6600; padding: 100px 0; color: white; }
+  .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 60px; }
+  .member-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .member-card { background: white; color: #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .member-card img { width: 100%; height: 250px; object-fit: cover; }
+  .card-info { padding: 30px; text-align: center; flex-grow: 1; }
+  .card-role { font-size: 14px; font-weight: 700; color: #666; margin-bottom: 8px; }
+  .card-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .card-affi { font-size: 14px; color: #888; margin-bottom: 24px; }
+  .btn-card { display: inline-block; padding: 10px 30px; border: 2px solid #ff6600; color: #ff6600; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.2s; }
+  .btn-card:hover { background: #ff6600; color: white; }
+
+  /* モバイル対応（900px以下で縦並び） */
+  @media (max-width: 900px) {
+    .qa-flex, .qa-reverse .qa-flex {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .qa-image img { aspect-ratio: 16 / 9; }
+    .question { font-size: 22px; padding-left: 16px; }
+  }
+</style>

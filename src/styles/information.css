@@ -1,0 +1,147 @@
+/* 共通コンテナ */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ヘッダー */
+.Info-header {
+  background-color: #000;
+  color: #fff;
+  padding: 80px 0;
+}
+
+.Info-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ナビゲーション */
+.Info-nav {
+  background-color: #000;
+  border-bottom: 1px solid #333;
+}
+
+.Info-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+}
+
+.Info-nav li {
+  padding: 20px 0;
+}
+
+.Info-nav a {
+  text-decoration: none;
+  color: #999;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.Info-nav li.active a {
+  color: #ff7a18; /* オレンジ色 */
+}
+
+/* 会社情報リスト */
+.Info-content {
+  padding: 80px 0;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  padding: 30px 0;
+  border-bottom: 1px solid #eee; /* 薄い下線 */
+}
+
+.info-item dt {
+  color: #ff7a18; /* 項目名をオレンジに */
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.info-item dd {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* --- スマホ・タブレット用レスポンシブ設定 (768px以下) --- */
+@media (max-width: 768px) {
+  
+  /* 1. ヘッダー周りの調整 */
+  .Info-header {
+    padding: 40px 0; /* 上下の余白を半分に（80px -> 40px） */
+    padding-top: 100px;
+  }
+
+  .Info-header h1 {
+    font-size: 32px; /* 文字サイズを縮小（48px -> 32px） */
+    line-height: 1.4;
+  }
+
+  /* 2. ナビゲーションを「横スクロール」対応にする */
+  .Info-nav {
+    width: 100%;
+    overflow: hidden; /* はみ出し防止 */
+  }
+
+  .Info-nav ul {
+    display: flex;
+    gap: 0;           /* gapは使わずpaddingで調整 */
+    overflow-x: auto; /* 横スクロールを許可 */
+    white-space: nowrap; /* 文字の折り返しを禁止（重要） */
+    -webkit-overflow-scrolling: touch; /* 滑らかなスクロール */
+    padding: 0 20px;  /* 左右に少し余白 */
+  }
+
+  /* スクロールバーを隠す（見た目をきれいに） */
+  .Info-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .Info-nav li {
+    padding: 15px 0;
+    margin-right: 30px; /* アイテム間の間隔 */
+    flex: 0 0 auto;     /* 縮まないように設定 */
+  }
+
+  .Info-nav a {
+    font-size: 14px;    /* 文字を少し小さく */
+    display: block;
+  }
+
+  /* 3. 会社情報リストの調整 */
+  .Info-content {
+    padding: 40px 0;
+  }
+
+  .info-item {
+    padding: 20px 0;
+  }
+
+  .info-item dt {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .info-item dd {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  /* コンテナの余白調整 */
+  .container {
+    padding: 50 20px;
+  }
+}

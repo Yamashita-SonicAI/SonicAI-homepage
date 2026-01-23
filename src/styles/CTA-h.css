@@ -1,0 +1,116 @@
+.cta-h-section {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-h-container {
+  background: linear-gradient(135deg, #0052cc 0%, #003399 100%); /* 青いグラデーション */
+  border-radius: 8px;
+  padding: 60px;
+  display: flex;
+  color: #fff;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.cta-h-left {
+  flex: 1;
+}
+
+.cta-h-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cta-h-title {
+  font-size: 64px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cta-h-right {
+  flex: 1.5;
+}
+
+.cta-h-text {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.cta-h-description {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-h-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #0052cc;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  min-width: 280px;
+  transition: transform 0.2s ease;
+}
+
+.cta-h-button:hover {
+  transform: translateY(-2px);
+}
+
+/* --- スマホ・タブレット用レスポンシブ設定 (768px以下) --- */
+@media (max-width: 768px) {
+  /* 1. 外枠の余白を縮小 */
+  .cta-h-section {
+    padding: 40px 20px; /* 上下80px→40px, 左右24px→20px */
+  }
+
+  /* 2. コンテナを縦並びに変更 */
+  .cta-h-container {
+    flex-direction: column; /* 横並びから縦積みに */
+    padding: 40px 24px;     /* 内側の余白も少し減らす */
+    gap: 30px;              /* 要素間の隙間を詰める */
+  }
+
+  /* 3. タイトル周りの調整 */
+  .cta-h-left {
+    width: 100%;
+    text-align: left; /* 必要であれば center に */
+  }
+
+  .cta-h-title {
+    font-size: 42px; /* 64pxだと大きすぎるので縮小 */
+  }
+
+  /* 4. 本文エリアの調整 */
+  .cta-h-right {
+    width: 100%;
+  }
+
+  .cta-h-text {
+    font-size: 20px; /* 28pxから縮小して読みやすく */
+    margin-bottom: 16px;
+  }
+
+  .cta-h-description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  /* 5. ボタンを横幅いっぱいに押しやすく */
+  .cta-h-button {
+    width: 100%;       /* 親要素いっぱいに広げる */
+    min-width: 0;
+    box-sizing: border-box; /* パディングを含めて計算 */
+    justify-content: space-between;
+  }
+}

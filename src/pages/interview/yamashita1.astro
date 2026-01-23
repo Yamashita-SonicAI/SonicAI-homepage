@@ -1,0 +1,333 @@
+---
+// UTF-8で保存されていることを確認してください
+import Layout from "../../layouts/Layout.astro";
+import { interviewData } from "../../data/interviews";
+
+const member = interviewData.find(d => d.id === "yamashita");
+---
+
+<Layout title={`${member.name} インタビュー | SonicAI`}>
+  <article class="interview-post">
+    <div class="interview-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Interview with Ryoto</h1>
+          <p class="hero-description">
+            {member.description} 高専を経て、横浜国立大学理工学部卒業。学生時代から一貫して「ものづくり」に没頭し、NHKロボコンにも出場。大学では音響信号処理を専攻。その後、技術派遣として日経大手企業のP&D部門に配属され、新規プロダクトの音響解析や開発に従事。「よりユーザーに近い現場で、技術を社会実装したい」という想いからSonicAIへ参画。現在はSonicAIのフルスタックエンジニアとして活躍中。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container interview-body">
+      
+      <section class="qa-block">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/yamashita.jpg" alt="研究風景" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">まずは、これまでの経歴を教えてください。</h2>
+            <div class="answer">
+              <p>一貫して「ものづくり」の世界に身を置いてきました。 高専時代はロボットの設計から電子回路（基板）の製作、ソフトウェアの実装までを学び、NHKロボコンにも出場しました。その後、大学では「音」の面白さに惹かれ、信号処理の研究に没頭していました。
+              その後、技術派遣先である日系大手企業では、R&D（研究開発）部門として、新規プロダクトにおける音の解析やデジタルフィルタの設計、性能評価に従事していました。 ロボットから音響まで分野は多岐にわたりますが、根本にあるのは常に「技術で何かを作り出す楽しさ」です。</p>
+            </div>
+            <h2 class="question">大手企業のR&Dという安定した環境から、なぜ転職を考えたのでしょうか?</h2>
+            <div class="answer">
+              <p>研究開発自体はとても楽しかったのですが、次第に「これは誰のために作っているんだろう？」「本当に社会の役に立っているのだろうか？」という課題感を抱くようになったのがきっかけです。大手ではどうしても、開発者とエンドユーザーの距離が遠くなりがちです。 もっと実際に製品が使われている様子を見たいですし、ユーザーの意見をダイレクトに取り入れて改良したい。「狭い専門分野だけでなく、もっと幅広く技術に携わりたい」という思いが強くなり、少人数で裁量の大きいスタートアップ環境への転身を決意しました。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-block qa-reverse">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/yamashita-2.jpg" alt="チームミーティング" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">数ある選択肢の中で、SonicAIを選んだ決め手は？</h2>
+            <div class="answer">
+              <p>大きく2つの理由があります。
+              <br/>1つ目は、「Hardware × AI」という技術的な挑戦の面白さです。 現在、AIといえばChatGPTやGeminiのような大規模言語モデル（LLM）が主流ですが、これをクラウドではなく、リアルタイムかつハードウェア（ローカル環境）に落とし込んで実装するのは非常に難易度が高い技術です。 「どうすればリアルタイムでAIを動かせるか」「ローカル環境でいかに汎用的かつ高精度なものを作れるか」。この技術的な問いにワクワクしました。
+              <br/>2つ目は、「企業と共に成長できる実感」です。 完成された組織に入るのではなく、自分の成長が会社の成長に直結する環境こそ、「仕事をしている！」という手応えが得られると感じました。ここなら、自分の技術で社会に役立つものを生み出せると確信し、入社を決めました</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-block">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/yamashita-3.jpg" alt="今後のビジョン" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">今後のビジョンを教えてださい。</h2>
+            <div class="answer">
+              <p>エンジニアとしては、最新のAI論文を実装するだけでなく、それを実際の現場で使いやすい形に応用したり、特定のお客様に特化させたりと、「社会実装する能力」をより高めていきたいです。 また、チーム開発におけるマネジメントスキルも磨き、将来的には一つのチームを牽引できる存在になりたいと考えています。
+              目指す場所は高いですが、SonicAIをトヨタやホンダ、ヤマハ、ソニーといった、日本を代表する「ものづくり企業」と並ぶような会社にしていきたいですし、この会社なら本当に20年後に実現するのではないかと心から思っています。</p>
+            </div>
+            <h2 class="question">SonicAIへの参画を検討している方へ</h2>
+            <div class="answer">
+              <p>SonicAIは、「本当に人の役に立つもの」を作れる場所であり、エンジニアとして純粋に技術を楽しめる場所です。
+              <br/>・もっと挑戦的な仕事がしたい方
+              <br/>・言われたものを作るだけでなく、自分で考えて意見を出し合い、お客様に寄り添ったプロダクトを開発したい方
+              <br/>そんな熱意を持った方と一緒に働けることを楽しみにしています！</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <aside class="other-members">
+      <div class="container">
+        <h2 class="section-title">他メンバーのインタビュー</h2>
+        <div class="member-grid">
+          {interviewData.filter(d => d.id !== "yamashita").map(other => (
+            <div class="member-card">
+              <img src={other.image} alt={other.name} />
+              <div class="card-info">
+                <p class="card-role">{other.role}</p>
+                <h3 class="card-name">{other.name}</h3>
+                <p class="card-affi">{other.affiliation}</p>
+                <a href={other.link} class="btn-card">インタビューを読む</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  /* --- 基本設定 --- */
+  .container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- ヒーローエリア --- */
+  .interview-hero {
+    background-color: #ff6600;
+    color: #ffffff;
+    padding: 120px 0 80px 0;
+    text-align: center;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    line-height: 2.0;
+    max-width: 850px;
+    text-align: justify; /* スマホでは left に変更します */
+    margin: 0 auto;
+  }
+
+  /* --- インタビュー本文エリア --- */
+  .interview-body {
+    padding-top: 80px; /* 上の余白 */
+  }
+
+  .qa-block {
+    margin-bottom: 140px; /* PCでは広めに */
+  }
+
+  .qa-flex {
+    display: flex;
+    align-items: flex-start; /* 上揃え */
+    gap: 40px; /* 画像と文字の間隔 */
+  }
+
+  /* 交互配置 */
+  .qa-reverse .qa-flex {
+    flex-direction: row-reverse;
+  }
+
+  .qa-image {
+    flex: 1;
+    min-width: 300px; /* 画像が小さくなりすぎないように */
+  }
+
+  .qa-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  .qa-text {
+    flex: 1.2;
+  }
+
+  /* 質問・回答テキスト */
+  .question {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-top: 40px; /* 修正: 100pxだと広すぎるので調整 */
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    border-left: 8px solid #ff6600;
+    padding-left: 24px;
+  }
+
+  /* 最初の質問だけ上の余白を消す */
+  .qa-text .question:first-of-type {
+    margin-top: 0;
+  }
+
+  .answer p {
+    font-size: 17px; /* 重複していたため統合 */
+    line-height: 2.0;
+    color: #444;
+    margin-bottom: 1.5em;
+  }
+
+  /* --- 他メンバー紹介エリア --- */
+  .other-members {
+    background-color: #ff6600;
+    padding: 100px 0;
+    color: white;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 60px;
+  }
+
+  .member-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* PCは2列 */
+    gap: 40px;
+  }
+
+  .member-card {
+    background: white;
+    color: #333;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .member-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-info {
+    padding: 30px;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .card-role {
+    font-size: 14px;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .card-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .card-affi {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 24px;
+  }
+
+  .btn-card {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid #ff6600;
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+
+  .btn-card:hover {
+    background: #ff6600;
+    color: white;
+  }
+
+  /* --- スマホ・タブレット対応 (968px以下) --- */
+  @media (max-width: 968px) {
+    
+    /* 1. ヒーローエリアの調整 */
+    .interview-hero {
+      padding: 100px 0 60px 0; /* 余白を縮小 */
+    }
+
+    .hero-title {
+      font-size: 2.5rem; /* 文字サイズを小さく */
+    }
+
+    .hero-description {
+      text-align: left; /* スマホでjustifyは読みづらいため左揃え */
+      font-size: 1rem;
+    }
+
+    /* 2. インタビュー部分を縦並びに */
+    .qa-flex, 
+    .qa-reverse .qa-flex {
+      flex-direction: column; /* 常に縦並び */
+      gap: 30px;
+    }
+
+    .qa-image {
+      width: 100%; /* 画像を横幅いっぱいに */
+    }
+    
+    .qa-image img {
+      aspect-ratio: 16 / 9; /* 少し横長にして高さを抑える */
+    }
+
+    .qa-block {
+      margin-bottom: 80px; /* 余白を縮小 */
+    }
+
+    .question {
+      font-size: 20px;
+      padding-left: 16px;
+      border-left-width: 6px;
+    }
+
+    /* 3. 他メンバー紹介を1列に */
+    .other-members {
+      padding: 60px 0;
+    }
+
+    .member-grid {
+      grid-template-columns: 1fr; /* ★重要：1列に変更 */
+      gap: 30px;
+    }
+    
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+  }
+</style>

@@ -1,0 +1,236 @@
+.contact-page {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+.contact-title-area {
+  margin-bottom: 40px; /* 下のフォームとの間隔 */
+}
+
+/* 「● お問い合わせ」の部分 */
+.title-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-top: 100px;
+  margin-bottom: 8px;
+}
+
+.title-label .dot {
+  color: #ff7a18; /* 点の色をオレンジに */
+  font-size: 12px;
+}
+
+/* 大きな「Contact」の部分 */
+.main-title {
+  font-size: 80px;      /* 思い切って大きくするのがコツです */
+  font-weight: 800;
+  line-height: 1;
+  color: #333;
+  margin: 0;
+  letter-spacing: -2px; /* 文字の間隔を少し詰めるとスタイリッシュになります */
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;  
+}
+
+
+/* スマホではサイズを調整 */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 12vw;
+    letter-spacing: -1px;
+  }
+}
+
+.contact-container {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* フォーム側のスタイル */
+.contact-form-side {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-group label span {
+  color: #ff4d4d;
+  margin-left: 4px;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fcfcfc;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #ff9d42, #ff7a18);
+  color: white;
+  border: none;
+  padding: 16px 60px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+/* 画像側のスタイル */
+.contact-image-side {
+  flex: 1;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.contact-image-side img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+/* オレンジの丸い装飾 */
+.accent-circle {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff9d42, #ff7a18);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* スマホ対応 */
+@media (max-width: 968px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-image-side {
+    order: -1; /* スマホでは画像を上に */
+  }
+}
+/* これをCSSの最後に追加してください */
+/* スマホ・タブレット用レスポンシブ設定 (768px以下) */
+/* --- レスポンシブ設定（968px以下ですべてスマホ風デザインに統一） --- */
+@media (max-width: 968px) {
+  
+  .contact-page {
+    padding-top: 50px;
+    margin: 0 auto;
+  }
+
+  /* 1. レイアウトを縦並びにし、横幅いっぱいに引き伸ばす */
+  .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  /* 2. 各エリアの幅を強制的に100%にする */
+  .contact-form-side,
+  .contact-image-side {
+    width: 100%;
+    flex: none; /* PC用のflex設定を解除 */
+  }
+
+  .contact-image-side {
+    order: -1; /* 画像を上に表示 */
+  }
+
+  /* 3. フォームグループの調整 */
+  .form-group {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  /* 4. 入力欄のデザイン（白背景・全幅・影付き） */
+  .form-group input, 
+  .form-group textarea {
+    width: 100% !important;   /* 強制的に広げる */
+    box-sizing: border-box;   /* 枠線や余白を含めて計算 */
+    max-width: 100%;
+    
+    background-color: #fff;   /* 白背景 */
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 16px;            /* タップしやすい広さ */
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* うっすら影 */
+  }
+
+  /* 5. ラベルと必須マークのデザイン（バッジ風） */
+  .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* 必須マーク（*）を「必須」バッジにして左へ移動 */
+  .form-group label span {
+    order: -1; /* ★ここが重要：文字の左側に移動 */
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    background-color: #fff;
+    padding: 2px 6px;
+    font-size: 11px;
+    border-radius: 2px;
+    margin-left: 0;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  /* 送信ボタンも全幅に */
+  .submit-btn {
+    width: 100%;
+  }
+  
+  /* 画像の調整 */
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* タイトルの余白調整 */
+  .title-label {
+    margin-top: 40px;
+  }
+  
+  /* メインタイトルの文字サイズ調整 */
+  .main-title {
+    font-size: 12vw; /* 画面幅に合わせて調整 */
+    letter-spacing: -1px;
+  }
+}

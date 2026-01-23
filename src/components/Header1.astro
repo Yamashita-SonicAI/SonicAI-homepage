@@ -1,0 +1,314 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" alt="SonicAI" />
+      </a>
+    </div>
+    
+    <button class="menu-toggle" aria-label="メニュー開閉">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+            <a href="/">Home</a>
+        </li>
+        <li class="nav-item has-dropdown">
+            <div class="nav-item-header">
+            <a href="/Info/info">会社情報</a>
+            <button class="dropdown-toggle" aria-label="展開"></button>
+        </div>
+          <ul class="dropdown">
+            <li><a href="/Info/info">会社概要</a></li>
+            <li><a href="/Info/Member">メンバー</a></li>
+            <li><a href="/Info/MessageCEO">代表挨拶</a></li>
+            <li><a href="/Info/Philosophy">企業理念</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="/news/すべて/1">News</a></li>
+        <li class="nav-item"><a href="/work-with-sonicai">SonicAIで働く</a></li>
+        <li class="nav-item"><a href="/contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+/* --- 共通・PC用ベーススタイル --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 80px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: none; /* PCではボタンを隠す */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: f0f0f0;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+/* PC用ドロップダウン（1025px以上に適用されるよう制限） */
+@media (min-width: 1025px) {
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    padding: 8px 0;
+    min-width: 180px;
+    list-style: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+  }
+
+  .nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+  }
+
+  .dropdown li a:hover {
+    background-color: #f5f7fa;
+    color: #ff6600;
+  }
+}
+
+/* --- 改良ポイント：1024px以下のレスポンシブ設定 --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* スマホ表示*/
+@media (max-width: 1024px) {
+  .header-inner {
+    padding: 0 20px;
+  }
+
+  .menu-toggle {
+    display: flex; /* 1024px以下ですぐにハンバーガーを表示 */
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 120px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 100px 30px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+  }
+
+  .nav.is-open {
+    padding: 50px;
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0; /* スマホではボーダーで区切るため */
+    width: 120px;
+    padding: 0px;
+  }
+
+  .nav-item {
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .nav-item li a {
+    color: #333;
+  }
+
+  .nav-item a {
+    display: block;
+    padding: 15px 0;
+    color: #333;
+  }
+
+  .dropdown li a {
+    padding: 8px 0;
+    color: #333; /* ★これを追加するとスマホでも文字が見えるようになります */
+  }
+
+  /* スマホ・ウィンドウ小の時のドロップダウン表示 */
+  .dropdown {
+    display: none;
+    background: #f9f9f9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    list-style: none;
+  }
+
+  .nav-item.active .dropdown {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .nav-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 10px; /* ボタンのために少し右を空ける */
+  }
+
+  /* Informationの文字 */
+  .nav-item-header a {
+    flex-grow: 1; /* 横幅いっぱいまで広げる */
+    color: #333;
+    padding: 15px 0;
+    display: block;
+  }
+
+  /* ▼＋ボタンのデザイン */
+  .dropdown-toggle {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* 縦と横の線で「＋」を作る */
+  .dropdown-toggle::before,
+  .dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #ff6600; /* SonicAIカラー（青なら #0047ff） */
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-toggle::before { width: 16px; height: 2px; } /* 横線 */
+  .dropdown-toggle::after { width: 2px; height: 16px; } /* 縦線 */
+
+  /* 開いている時（.active）は縦線を回転させて「ー」にする */
+  .nav-item.active .dropdown-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .dropdown li a {
+    font-size: 10px;
+    padding: 8px 0;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+  // Astroのスクリプトタグ（クライアント側で実行）
+  const initMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    // ▼▼▼ 追加した部分：ドロップダウン（＋ボタン）の制御 ▼▼▼
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach(toggleBtn => {
+      toggleBtn.addEventListener('click', (e) => {
+        // リンクではないのでページ遷移などを防ぐ
+        e.preventDefault();
+        e.stopPropagation(); 
+
+        // ボタンの親要素（li.nav-item）を探して active クラスを付け外しする
+        const parent = toggleBtn.closest('.nav-item');
+        parent?.classList.toggle('active');
+      });
+    });
+    // ▲▲▲ 追加部分終了 ▲▲▲
+
+
+    // ハンバーガーメニュー自体の開閉（既存のまま）
+    menuToggle?.addEventListener('click', () => {
+      menuToggle.classList.toggle('is-active');
+      nav?.classList.toggle('is-open');
+      // メニューが開いている時に背面をスクロールさせない
+      document.body.style.overflow = nav?.classList.contains('is-open') ? 'hidden' : 'auto';
+    });
+
+    // メニュー外側やリンククリックで閉じる処理（UX向上）（既存のまま）
+    const navLinks = document.querySelectorAll('.nav-list a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle?.classList.remove('is-active');
+        nav?.classList.remove('is-open');
+        document.body.style.overflow = 'auto';
+      });
+    });
+  };
+
+  initMenu();
+  // AstroのView Transitions対応（必要に応じて）
+  document.addEventListener('astro:after-swap', initMenu);
+</script>

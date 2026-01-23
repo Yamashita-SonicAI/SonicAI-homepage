@@ -1,0 +1,115 @@
+---
+// src/pages/interview/yamashita.astro
+import Layout from "../../layouts/Layout.astro";
+import { interviewData } from "../../data/interviews";
+
+// 山下さんのデータを取得（共通パーツがある場合用）
+const member = interviewData.find(d => d.id === "yamashita");
+---
+
+<Layout title={`${member.name} インタビュー | SonicAI`}>
+  <article class="interview-post">
+    <div class="interview-hero">
+      <div class="container">
+        <div class="hero-flex">
+          <div class="hero-image">
+            <img src={member.image} alt={member.name} />
+          </div>
+          <div class="hero-text">
+            <p class="affiliation">{member.affiliation}</p>
+            <h1 class="name">{member.name}</h1>
+            <p class="role">{member.role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container interview-body">
+      
+      <section class="qa-block">
+        <h2 class="question">大手企業からスタートアップを選んだ理由は？</h2>
+        <div class="answer">
+          <p>研究開発自体はとても楽しかったのですが、次第に「これは誰のためにやっているんだろう？」「実際に社会の役に立っているのだろうか？」という疑問を抱くようになったのがきっかけです。</p>
+          <p>大手はどうしても、開発者とエンドユーザーの距離が遠くなりがちです。もっとダイレクトに現場の声を聴き、スピード感を持って社会実装に貢献したいと考え、SonicAIへの参画を決めました。</p>
+        </div>
+      </section>
+
+      <section class="qa-block">
+        <h2 class="question">数ある選択肢の中で、SonicAIを選んだ決め手は？</h2>
+        <div class="answer">
+          <p>大きく二つの理由があります。一つ目は「エッジコンピューティング × AI」という技術的難易度の高さです。リアルタイム性が求められる製造現場では、クラウドではなくローカル環境で高度な処理を動かす必要があります。この挑戦的な領域に惹かれました。</p>
+          <p>二つ目は「主体的に成長できる環境」です。決められた業務をこなすだけでなく、自ら課題を見つけ、解決策を提案し、実行まで一貫して携われることに魅力を感じました。</p>
+        </div>
+      </section>
+
+      <section class="qa-block message-block">
+        <h2 class="question">SonicAIへの参画を検討している方へメッセージ</h2>
+        <div class="answer">
+          <p>SonicAIは「現場に寄り添った本質的なプロダクト」を作れる場所です。技術を磨くだけでなく、自分の手で作ったものが社会を動かす実感を持ちたい方。そんな熱意を持った方と一緒に働けることを楽しみにしています！</p>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="other-members">
+      <div class="container">
+        <h2 class="section-title">他メンバーのインタビュー</h2>
+        <div class="member-grid">
+          {interviewData.filter(d => d.id !== "yamashita").map(other => (
+            <div class="member-card">
+              <img src={other.image} alt={other.name} />
+              <div class="card-info">
+                <p class="card-role">{other.role}</p>
+                <h3 class="card-name">{other.name}</h3>
+                <p class="card-affi">{other.affiliation}</p>
+                <a href={other.link} class="btn-card">インタビューを読む</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  /* 全体共通 */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* ヒーローエリア */
+  .interview-hero { background: #f9f9f9; padding: 80px 0; border-bottom: 1px solid #eee; }
+  .hero-flex { display: flex; align-items: center; gap: 60px; }
+  .hero-image img { width: 400px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  .affiliation { color: #ff6600; font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+  .name { font-size: 48px; font-weight: 700; margin: 0; }
+  .role { font-size: 20px; color: #666; font-weight: 500; }
+
+  /* インタビュー本文 */
+  .interview-body { padding: 80px 0; }
+  .qa-block { margin-bottom: 80px; }
+  .question { 
+    font-size: 28px; font-weight: 700; line-height: 1.4;
+    padding-left: 20px; border-left: 5px solid #ff6600;
+    margin-bottom: 30px; color: #333;
+  }
+  .answer p { font-size: 17px; line-height: 2.0; color: #444; margin-bottom: 1.5em; }
+
+  /* 他メンバー紹介（オレンジエリア） */
+  .other-members { background-color: #ff6600; padding: 100px 0; color: white; }
+  .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 60px; }
+  .member-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .member-card { background: white; color: #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .member-card img { width: 100%; height: 250px; object-fit: cover; }
+  .card-info { padding: 30px; text-align: center; flex-grow: 1; }
+  .card-role { font-size: 14px; font-weight: 700; color: #666; margin-bottom: 8px; }
+  .card-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .card-affi { font-size: 14px; color: #888; margin-bottom: 24px; }
+  .btn-card { display: inline-block; padding: 10px 30px; border: 2px solid #ff6600; color: #ff6600; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.2s; }
+  .btn-card:hover { background: #ff6600; color: white; }
+
+  @media (max-width: 768px) {
+    .hero-flex { flex-direction: column; text-align: center; gap: 30px; }
+    .hero-image img { width: 100%; }
+    .member-grid { grid-template-columns: 1fr; }
+  }
+</style>

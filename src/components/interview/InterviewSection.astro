@@ -1,0 +1,26 @@
+---
+import { interviewData } from "../../data/interviews";
+import "../../styles/interview.css";
+---
+
+<section class="interview-section">
+  <div class="container">
+    <h2 class="interview-title">社員インタビュー</h2>
+    
+    <div class="interview-grid">
+      {interviewData.map((member) => (
+        <div class="interview-card" key={member.id}>
+          <div class="card-image">
+            <img src={member.image} alt={member.name} />
+          </div>
+          <div class="card-content">
+            <p class="role">{member.role}</p>
+            <h3 class="name">{member.name}</h3>
+            <p class="affiliation">{member.affiliation}</p>
+            <a href={member.link} class="interview-btn">インタビューを読む</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
