@@ -13,7 +13,8 @@ const member = interviewData.find(d => d.id === "narumi");
         <div class="hero-content">
           <h1 class="hero-title">Interview with Taiyo</h1>
           <p class="hero-description">
-            {member.description} 高専を経て、横浜国立大学理工学部卒業。学生時代から一貫して「ものづくり」に没頭し、NHKロボコンにも出場。大学では音響信号処理を専攻。その後、技術派遣として日経大手企業のP&D部門に配属され、新規プロダクトの音響解析や開発に従事。「よりユーザーに近い現場で、技術を社会実装したい」という想いからSonicAIへ参画。現在はSonicAIのリードエンジニアとして活躍中。
+            {member.description} 東京大学工学部卒業。現在は東京大学大学院 新領域創成科学研究科に在籍。
+            大学・大学院では、神経細胞の活動データ処理をテーマに研究を行う。個人開発の経験を活かせる環境を求め、SonicAIにインターンとして参画。現在はReactを用いたフロントエンド開発を中心に、データベース設計などプロダクト開発全般に携わっている。
           </p>
         </div>
       </div>
@@ -24,13 +25,23 @@ const member = interviewData.find(d => d.id === "narumi");
       <section class="qa-block">
         <div class="qa-flex">
           <div class="qa-image">
-            <img src="/images/yamashita-01.jpg" alt="研究風景" />
+            <img src="/images/narumi.jpg" alt="研究風景" />
           </div>
           <div class="qa-text">
-            <h2 class="question">大手企業からスタートアップを選んだ理由は？</h2>
+            <h2 class="question">まずは、これまでのバックグラウンドと、大学での研究内容について教えてください。</h2>
             <div class="answer">
-              <p>研究開発自体はとても楽しかったのですが、次第に「これは誰のためにやっているんだろう？」という疑問を抱くようになったのがきっかけです。</p>
-              <p>大手はどうしても、開発者とエンドユーザーの距離が遠くなりがちです。もっとダイレクトに現場の声を聴き、スピード感を持って社会実装に貢献したいと考え、SonicAIへの参画を決めました。</p>
+              <p>学部は東京大学工学部で、現在は大学院の新領域創成科学研究科に在籍しています。
+              研究テーマは、神経細胞の活動データ処理です。脳内で発生する神経信号のデータを解析し、どのような情報処理が行われているのかを探る研究をしています。
+              研究ではデータ処理やアルゴリズム設計など、比較的ソフトウェア寄りの技術を扱うことも多く、授業や研究とは別に個人開発にも取り組んできました。</p>
+            </div>
+            <h2 class="question">SonicAIにインターンとして参画したきっかけは何だったのでしょうか？</h2>
+            <div class="answer">
+              <p>きっかけは、大学院の同期でSonicAIのインターンとして働いていた友人に相談したことです。
+              個人開発の経験を活かせる職場を探していて、「どんな環境がいいと思う？」と聞いたところ、SonicAIを紹介してもらいました。
+              話を聞く中で印象的だったのは、
+              「インターンでもプロダクトの中核に関われる」
+              「開発と意思決定のスピードがとにかく速い」という点です。
+              単なる技術インターンではなく、実際に価値を生む現場で開発できそうだと感じ、参画を決めました。</p>
             </div>
           </div>
         </div>
@@ -39,13 +50,26 @@ const member = interviewData.find(d => d.id === "narumi");
       <section class="qa-block qa-reverse">
         <div class="qa-flex">
           <div class="qa-image">
-            <img src="/images/yamashita-02.jpg" alt="チームミーティング" />
+            <img src="/images/narumi-2.jpg" alt="チームミーティング" />
           </div>
           <div class="qa-text">
-            <h2 class="question">数ある選択肢の中で、SonicAIを選んだ決め手は？</h2>
+            <h2 class="question">現在SoniAIでは，どのような業務を担当していますか?</h2>
             <div class="answer">
-              <p>一つ目は「エッジコンピューティング × AI」という技術的難易度の高さです。リアルタイム性が求められる現場で高度な処理を動かす挑戦的な領域に惹かれました。</p>
-              <p>二つ目は「主体的に成長できる環境」です。自ら課題を見つけ、解決策を提案し、実行まで一貫して携われることに魅力を感じました。</p>
+              <p>主に、Reactを用いたフロントエンド開発を担当しています。
+              UIの実装だけでなく、データベース設計なども含め、プロダクト全体を見ながら開発に関わっています。
+              SonicAIの開発は、とにかくスピード感が異次元です。
+              組織としての意思決定が非常に速く、開発側もそれについていく必要があります。正直、大変だと感じる場面もありました。
+              ただ、その分、自分が実装したものが驚くほど早く顧客の元に届く。
+              実際に評価をもらえるスピードも速く、技術者としてこれまでにないやりがいを感じています。
+              </p>
+            </div>
+            <h2 class="question">SonicAIのカルチャーや、他にはない学びについて教えてください。</h2>
+            <div class="answer">
+              <p>特に印象的なのは、田中さんやプロダクトマネージャーの小林さんと、雑談レベルでビジネスの話ができることです。​
+              研究や個人開発では、「作れるかどうか」「技術的に面白いか」が中心でしたが、SonicAIでは常に
+              「それは市場で通用するのか」「ビジネスとして成立するのか」
+              という視点がセットで語られます。​この視点をインターンの立場で間近に聞けるのは、非常に勉強になります。
+              </p>
             </div>
           </div>
         </div>
@@ -54,12 +78,25 @@ const member = interviewData.find(d => d.id === "narumi");
       <section class="qa-block">
         <div class="qa-flex">
           <div class="qa-image">
-            <img src="/images/yamashita-03.jpg" alt="今後のビジョン" />
+            <img src="/images/narumi-3.jpg" alt="今後のビジョン" />
           </div>
           <div class="qa-text">
-            <h2 class="question">SonicAIへの参画を検討している方へ</h2>
+            <h2 class="question">プロダクト開発への関わり方で、印象的だった経験はありますか？</h2>
             <div class="answer">
-              <p>SonicAIは「現場に寄り添った本質的なプロダクト」を作れる場所です。自分の手で作ったものが社会を動かす実感を持ちたい方。そんな熱意を持った方と一緒に働けることを楽しみにしています！</p>
+              <p>田中さんや小林さんが、「誰が、どんな場面で使うのか」というペルソナを非常に解像度高く共有してくれるので、
+              ただ指示通りに実装するのではなく、自分なりに顧客を想像して機能を考えることができますし、それが求められます。
+              実際に、自分が考えたUIの改善案をABテストとして顧客に届け、その結果が良く、本プロダクトに採用されたこともありました。
+              インターンであっても、プロダクトの価値づくりに直接関われる点は、SonicAIならではだと思います。</p>
+            </div>
+            <h2 class="question">SonicAIでのインターンを通じて、どんな成長を感じていますか？</h2>
+            <div class="answer">
+              <p>一番大きいのは、技術を課題ドリブンで「価値」や「売上」にどうつなげるかを考えるようになったことです。
+              「最新の技術をどう活用するか？」という思考回路だけではなく、
+              「市場やお客さんの課題をもとにどう技術を用いて解決するか？」
+              「価格に見合う価値を提供できるのか」
+              といった社会実装をする上で重要な視点を持つようになりました。
+              実際、数百万円で始めて自分たちが作ったプロダクトが顧客に初めて売れたときは本当に達成感がありました。
+              自分の実装がプロダクトとして世に出て、顧客に評価される。そのスピード感と手触り感は、研究だけでは得られない貴重な経験です！</p>
             </div>
           </div>
         </div>
@@ -88,7 +125,7 @@ const member = interviewData.find(d => d.id === "narumi");
 
 <style>
   /* 基本設定 */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1350px; margin: 0 auto; padding: 0 24px; }
 
 .qa-block { margin-bottom: 140px; }
 
@@ -125,13 +162,13 @@ const member = interviewData.find(d => d.id === "narumi");
   /* 横並びレイアウトのコア設定 */
 .qa-flex {
     display: flex;
-    align-items: flex-start; /* 上揃えがインタビューでは一般的 */
-    gap: 80px;
+    align-items: center; /* 上揃えがインタビューでは一般的 */
+    gap: 20px;
   }
 
 
 
-.qa-image { flex: 1; }
+.qa-image { flex: 1.2; }
 .qa-image img {
     width: 100%;
     border-radius: 12px;
@@ -149,7 +186,7 @@ const member = interviewData.find(d => d.id === "narumi");
 
   /* テキストの装飾 */
 .question {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 800;
     line-height: 1.5;
     margin-top: 100;
@@ -160,7 +197,7 @@ const member = interviewData.find(d => d.id === "narumi");
   }
 
 .answer p {
-    font-size: 17px;
+    font-size: 12px;
     line-height: 2.1;
     color: #444;
     margin-bottom: 1.5em;

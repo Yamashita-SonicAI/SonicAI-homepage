@@ -65,3 +65,52 @@
 .cta-h-button:hover {
   transform: translateY(-2px);
 }
+
+/* --- スマホ・タブレット用レスポンシブ設定 (768px以下) --- */
+@media (max-width: 768px) {
+  /* 1. 外枠の余白を縮小 */
+  .cta-h-section {
+    padding: 40px 20px; /* 上下80px→40px, 左右24px→20px */
+  }
+
+  /* 2. コンテナを縦並びに変更 */
+  .cta-h-container {
+    flex-direction: column; /* 横並びから縦積みに */
+    padding: 40px 24px;     /* 内側の余白も少し減らす */
+    gap: 30px;              /* 要素間の隙間を詰める */
+  }
+
+  /* 3. タイトル周りの調整 */
+  .cta-h-left {
+    width: 100%;
+    text-align: left; /* 必要であれば center に */
+  }
+
+  .cta-h-title {
+    font-size: 42px; /* 64pxだと大きすぎるので縮小 */
+  }
+
+  /* 4. 本文エリアの調整 */
+  .cta-h-right {
+    width: 100%;
+  }
+
+  .cta-h-text {
+    font-size: 20px; /* 28pxから縮小して読みやすく */
+    margin-bottom: 16px;
+  }
+
+  .cta-h-description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  /* 5. ボタンを横幅いっぱいに押しやすく */
+  .cta-h-button {
+    width: 100%;       /* 親要素いっぱいに広げる */
+    min-width: 0;
+    box-sizing: border-box; /* パディングを含めて計算 */
+    justify-content: space-between;
+  }
+}

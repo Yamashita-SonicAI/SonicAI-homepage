@@ -140,7 +140,7 @@ body {
   background-color: #333; /* 薄いグレー、または #fff */
   padding: 60px 24px 30px;
   border-top: 1px solid #eee;
-  margin-top: 100px; /* 前のコンテンツとの間隔 */
+  margin-top: 20px; /* 前のコンテンツとの間隔 */
 }
 
 .footer-info {
@@ -217,5 +217,32 @@ body {
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px; /* 余白を半分くらいに縮小 */
+  }
+
+  .hero-image {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-size: 22px;  /* スマホで見やすいサイズに縮小 */
+    line-height: 1.5;
+    text-align: left; /* スマホは左揃えの方が自然な場合が多い */
+    margin-bottom: 20px;
+  }
+
+  /* 【重要】スマホではタイトル内の改行タグ(<br>)を無効化・非表示にする */
+  .hero h1 br {
+    display: none;
+  }
+
+  .hero p {
+    font-size: 14px;  /* 本文も少し小さく */
+    line-height: 1.8;
   }
 }

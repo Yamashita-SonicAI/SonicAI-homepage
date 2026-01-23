@@ -23,13 +23,17 @@ const { job } = Astro.props;
     </section>
 
     <div class="container">
-      <section class="job-info-card">
-        <h2 class="section-label">■ 給与報酬（年俸 ＋ ストックオプション）</h2>
-        <ul class="info-list">
-          <li>{job.salary}</li>
-          <li>{job.benefits}</li>
-        </ul>
-      </section>
+      {/* job.salary または job.benefits のどちらかが存在する場合のみセクションを表示 */}
+      {(job.salary || job.benefits) && (
+        <section class="job-info-card">
+          <h2 class="section-label">■ 給与報酬（年俸 ＋ ストックオプション）</h2>
+          <ul class="info-list">
+            {/* それぞれの項目も、存在する場合のみ <li> を表示するようにします */}
+            {job.salary && <li>{job.salary}</li>}
+            {job.benefits && <li>{job.benefits}</li>}
+          </ul>
+        </section>
+      )}
 
       {job.sections.map((section) => (
         <section class="job-content-section">
@@ -68,7 +72,7 @@ const { job } = Astro.props;
     mix-blend-mode: overlay;
   }
 
-  .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; position: relative; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 
   .status-badge {
     background: #000;
@@ -89,7 +93,7 @@ const { job } = Astro.props;
   }
   .job-main-title span { font-size: 2.2rem; opacity: 0.9; }
 
-  .job-intro-text { font-size: 1.15rem; line-height: 1.5; max-width: 850px; }
+  .job-intro-text { font-size: 1.15rem; line-height: 1.5; max-width: 1200px; }
 
   .section-label { 
     font-size: 1.2rem; 

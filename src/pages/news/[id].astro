@@ -18,7 +18,7 @@ const { item } = Astro.props;
     
     <section class="news-detail-header-black">
       <div class="container">
-        <a href="/news/news_index" class="back-link light">
+        <a href="/news/すべて/1" class="back-link light">
           <span class="arrow">&lt;</span> Back
         </a>
         <h1 class="news-title">{item.title}</h1>
@@ -110,10 +110,19 @@ const { item } = Astro.props;
     border-radius: 999px;
     font-size: 14px;
     text-decoration: none;
-    margin-bottom: 0px;
+    margin-bottom: 30px; /* 余白を少し調整 */
     display: inline-block;
+    transition: all 0.3s ease; /* 変化をなめらかにする */
   }
 
+  /* ★カーソルが乗った時（ホバー時）の変化 */
+  .back-link.light:hover {
+    background-color: #ff6600;      /* SonicAIオレンジに背景を変える */
+    border-color: #ff6600;          /* 枠線もオレンジに変える */
+    color: #fff;                    /* 文字色は白を維持 */
+    transform: translateY(-3px);    /* 上に3pxふわっと浮かす */
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3); /* オレンジの影をつけて光らせる */
+  }
   /* 本文エリア */
   .main-visual {
     margin-bottom: 60px;
