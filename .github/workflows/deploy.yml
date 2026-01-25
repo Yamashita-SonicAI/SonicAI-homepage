@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/      # アップロード元（Astroのビルド成果物）
-          server-dir: ./public_html/ # アップロード先（サーバーの公開フォルダ）
+          server-dir: ./sonicai.jp/ # アップロード先（サーバーの公開フォルダ）
           protocol: ftps          # お名前.comはFTPS推奨
           exclude: |              # アップロードしないファイル
             **/.git*
