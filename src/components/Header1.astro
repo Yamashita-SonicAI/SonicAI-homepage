@@ -15,8 +15,13 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-            <a href="/">Home</a>
+            <a href="/">SonicAIについて</a>
         </li>
+
+        <li class="nav-item">
+            <a href="/Info/Member">チーム</a>
+        </li>
+
         <li class="nav-item has-dropdown">
             <div class="nav-item-header">
             <a href="/Info/info">会社情報</a>
@@ -24,13 +29,12 @@
         </div>
           <ul class="dropdown">
             <li><a href="/Info/info">会社概要</a></li>
-            <li><a href="/Info/Member">メンバー</a></li>
             <li><a href="/Info/MessageCEO">代表挨拶</a></li>
             <li><a href="/Info/Philosophy">企業理念</a></li>
           </ul>
         </li>
         <li class="nav-item"><a href="/news/すべて/1">News</a></li>
-        <li class="nav-item"><a href="/work-with-sonicai">SonicAIで働く</a></li>
+        <li class="nav-item"><a href="/work-with-sonicai">採用情報</a></li>
         <li class="nav-item"><a href="/contact">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -75,10 +79,37 @@
   color: f0f0f0;
   font-weight: 500;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-item a:hover {
+  color: #ff6600;
 }
 
 /* PC用ドロップダウン（1025px以上に適用されるよう制限） */
 @media (min-width: 1025px) {
+
+  .nav-item > a::after,
+  .nav-item-header > a::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid currentColor; /* 文字色と同じ色 */
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg); /* 下向き矢印 */
+    margin-bottom: 3px;       /* 位置の微調整 */
+    transition: transform 0.3s;
+  }
+
+  .nav-item:hover > a::after,
+  .nav-item:hover .nav-item-header > a::after {
+    transform: rotate(225deg); /* クルッと回して上向きに */
+    margin-bottom: -2px;
+  }
+
   .dropdown {
     position: absolute;
     top: 100%;
@@ -110,6 +141,11 @@
   .dropdown li a:hover {
     background-color: #f5f7fa;
     color: #ff6600;
+  }
+
+  .dropdown li a::after {
+    content: none;
+    display: none;
   }
 }
 
