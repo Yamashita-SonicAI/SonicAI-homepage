@@ -1,0 +1,230 @@
+---
+// UTF-8で保存されていることを確認してください
+import Layout from "../../layouts/Layout.astro";
+import { interviewData } from "../../data/interviews";
+
+const member = interviewData.find(d => d.id === "narumi");
+---
+
+<Layout title={`${member.name} インタビュー | SonicAI`}>
+  <article class="interview-post">
+    <div class="interview-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Interview with Taiyo</h1>
+          <p class="hero-description">
+            {member.description} 東京大学工学部卒業。現在は東京大学大学院 新領域創成科学研究科に在籍。
+            大学・大学院では、神経細胞の活動データ処理をテーマに研究を行う。個人開発の経験を活かせる環境を求め、SonicAIにインターンとして参画。現在はReactを用いたフロントエンド開発を中心に、データベース設計などプロダクト開発全般に携わっている。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container interview-body">
+      
+      <section class="qa-block">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/narumi.jpg" alt="研究風景" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">まずは、これまでのバックグラウンドと、大学での研究内容について教えてください。</h2>
+            <div class="answer">
+              <p>学部は東京大学工学部で、現在は大学院の新領域創成科学研究科に在籍しています。
+              研究テーマは、神経細胞の活動データ処理です。脳内で発生する神経信号のデータを解析し、どのような情報処理が行われているのかを探る研究をしています。
+              研究ではデータ処理やアルゴリズム設計など、比較的ソフトウェア寄りの技術を扱うことも多く、授業や研究とは別に個人開発にも取り組んできました。</p>
+            </div>
+            <h2 class="question">SonicAIにインターンとして参画したきっかけは何だったのでしょうか？</h2>
+            <div class="answer">
+              <p>きっかけは、大学院の同期でSonicAIのインターンとして働いていた友人に相談したことです。
+              個人開発の経験を活かせる職場を探していて、「どんな環境がいいと思う？」と聞いたところ、SonicAIを紹介してもらいました。
+              話を聞く中で印象的だったのは、
+              「インターンでもプロダクトの中核に関われる」
+              「開発と意思決定のスピードがとにかく速い」という点です。
+              単なる技術インターンではなく、実際に価値を生む現場で開発できそうだと感じ、参画を決めました。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-block qa-reverse">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/narumi-2.jpg" alt="チームミーティング" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">現在SoniAIでは，どのような業務を担当していますか?</h2>
+            <div class="answer">
+              <p>主に、Reactを用いたフロントエンド開発を担当しています。
+              UIの実装だけでなく、データベース設計なども含め、プロダクト全体を見ながら開発に関わっています。
+              SonicAIの開発は、とにかくスピード感が異次元です。
+              組織としての意思決定が非常に速く、開発側もそれについていく必要があります。正直、大変だと感じる場面もありました。
+              ただ、その分、自分が実装したものが驚くほど早く顧客の元に届く。
+              実際に評価をもらえるスピードも速く、技術者としてこれまでにないやりがいを感じています。
+              </p>
+            </div>
+            <h2 class="question">SonicAIのカルチャーや、他にはない学びについて教えてください。</h2>
+            <div class="answer">
+              <p>特に印象的なのは、田中さんやプロダクトマネージャーの小林さんと、雑談レベルでビジネスの話ができることです。​
+              研究や個人開発では、「作れるかどうか」「技術的に面白いか」が中心でしたが、SonicAIでは常に
+              「それは市場で通用するのか」「ビジネスとして成立するのか」
+              という視点がセットで語られます。​この視点をインターンの立場で間近に聞けるのは、非常に勉強になります。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-block">
+        <div class="qa-flex">
+          <div class="qa-image">
+            <img src="/images/narumi-3.jpg" alt="今後のビジョン" />
+          </div>
+          <div class="qa-text">
+            <h2 class="question">プロダクト開発への関わり方で、印象的だった経験はありますか？</h2>
+            <div class="answer">
+              <p>田中さんや小林さんが、「誰が、どんな場面で使うのか」というペルソナを非常に解像度高く共有してくれるので、
+              ただ指示通りに実装するのではなく、自分なりに顧客を想像して機能を考えることができますし、それが求められます。
+              実際に、自分が考えたUIの改善案をABテストとして顧客に届け、その結果が良く、本プロダクトに採用されたこともありました。
+              インターンであっても、プロダクトの価値づくりに直接関われる点は、SonicAIならではだと思います。</p>
+            </div>
+            <h2 class="question">SonicAIでのインターンを通じて、どんな成長を感じていますか？</h2>
+            <div class="answer">
+              <p>一番大きいのは、技術を課題ドリブンで「価値」や「売上」にどうつなげるかを考えるようになったことです。
+              「最新の技術をどう活用するか？」という思考回路だけではなく、
+              「市場やお客さんの課題をもとにどう技術を用いて解決するか？」
+              「価格に見合う価値を提供できるのか」
+              といった社会実装をする上で重要な視点を持つようになりました。
+              実際、数百万円で始めて自分たちが作ったプロダクトが顧客に初めて売れたときは本当に達成感がありました。
+              自分の実装がプロダクトとして世に出て、顧客に評価される。そのスピード感と手触り感は、研究だけでは得られない貴重な経験です！</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <aside class="other-members">
+      <div class="container">
+        <h2 class="section-title">他メンバーのインタビュー</h2>
+        <div class="member-grid">
+          {interviewData.filter(d => d.id !== "narumi").map(other => (
+            <div class="member-card">
+              <img src={other.image} alt={other.name} />
+              <div class="card-info">
+                <p class="card-role">{other.role}</p>
+                <h3 class="card-name">{other.name}</h3>
+                <p class="card-affi">{other.affiliation}</p>
+                <a href={other.link} class="btn-card">インタビューを読む</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  /* 基本設定 */
+.container { max-width: 1350px; margin: 0 auto; padding: 0 24px; }
+
+.qa-block { margin-bottom: 140px; }
+
+.interview-hero {
+    background-color: #ff6600; /* SonicAIのブランドカラー */
+    color: #ffffff;
+    /* ヘッダーとの重なりを防ぐため、上のpaddingを多めに設定 */
+    padding: 120px 0 80px 0; 
+    text-align: center;
+  }
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    /* 文字の読みやすさを確保 */
+    line-height: 1.2;
+  }
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 2.0;
+    max-width: 850px;
+    text-align: justify;
+    margin: 0 auto;
+  }
+
+  /* 横並びレイアウトのコア設定 */
+.qa-flex {
+    display: flex;
+    align-items: center; /* 上揃えがインタビューでは一般的 */
+    gap: 20px;
+  }
+
+
+
+.qa-image { flex: 1.2; }
+.qa-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+.qa-text { flex: 1.2; }
+
+  /* 交互配置の設定 */
+  .qa-reverse .qa-flex {
+    flex-direction: row-reverse;
+  }
+
+  /* テキストの装飾 */
+.question {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-top: 100;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    border-left: 8px solid #ff6600; /* SonicAIオレンジ */
+    padding-left: 24px;
+  }
+
+.answer p {
+    font-size: 12px;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1.5em;
+  }
+
+.answer p { font-size: 17px; line-height: 2.0; color: #444; margin-bottom: 1.5em; }
+
+  /* 他メンバー紹介（オレンジエリア） */
+  .other-members { background-color: #ff6600; padding: 100px 0; color: white; }
+  .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 60px; }
+  .member-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .member-card { background: white; color: #333; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .member-card img { width: 100%; height: 250px; object-fit: cover; }
+  .card-info { padding: 30px; text-align: center; flex-grow: 1; }
+  .card-role { font-size: 14px; font-weight: 700; color: #666; margin-bottom: 8px; }
+  .card-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .card-affi { font-size: 14px; color: #888; margin-bottom: 24px; }
+  .btn-card { display: inline-block; padding: 10px 30px; border: 2px solid #ff6600; color: #ff6600; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.2s; }
+  .btn-card:hover { background: #ff6600; color: white; }
+
+  /* モバイル対応（900px以下で縦並び） */
+  @media (max-width: 900px) {
+    .qa-flex, .qa-reverse .qa-flex {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .qa-image img { aspect-ratio: 16 / 9; }
+    .question { font-size: 22px; padding-left: 16px; }
+  }
+</style>

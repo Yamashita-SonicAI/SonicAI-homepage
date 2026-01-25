@@ -1,0 +1,42 @@
+---
+// src/components/services/ServiceCard.astro
+const { title, subtitle, description, image, link } = Astro.props;
+---
+
+<div class="service-card">
+  <div class="text">
+    <h3>{title}</h3>
+    <p class="subtitle">{subtitle}</p>
+    <p class="desc">{description}</p>
+    <a href={link} class="btn">詳しく見る →</a>
+  </div>
+
+  <div class="image">
+    <img src={image} alt={title} />
+  </div>
+</div>
+
+<style>
+.service-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px; /* 60pxは広すぎる可能性があるので少し詰めました */
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 40px;
+  box-sizing: border-box; /* これが抜けているとpadding分右に突き出します */
+  overflow: hidden;       /* 子要素のはみ出しを強制カット */
+}
+
+.service-card img {
+  width: 100%;       /* 親要素の幅いっぱいに広げる */
+  max-width: none;  /* 大きくなりすぎないように制限（お好みで調整） */
+  height: auto;      /* 比率を維持 */
+  border-radius: 8px; /* 角を少し丸くすると綺麗です */
+  /*object-fit: contain;  枠に合わせて綺麗に収める */
+
+}
+</style>

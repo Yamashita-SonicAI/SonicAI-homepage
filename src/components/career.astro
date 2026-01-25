@@ -1,0 +1,288 @@
+---
+// データ構造の定義（必要に応じて別ファイルに切り出せます）
+const jobCategories = [
+  {
+    title: "経営メンバー",
+    overlay: "rgba(0, 0, 255, 0.7)", // ブルー
+    bgImage: "/images/member-bg-01.jpg",
+    jobs: [
+      { name: "CTO", sub: "(Chief Technology Officer)", url:"/career/cto" },
+      { name: "COO", sub: "(Chief Operating Officer)", url:"/career/coo" },
+      { name: "CFO", sub: "(Chief Financial Officer)", url:"/career/cfo" },
+      { name: "VPoE", sub: "", url:"/career/vpoe" },
+      { name: "VPoS", sub: "", url:"/career/vpos" }
+    ]
+  },
+  {
+    title: "国内スタッフ",
+    overlay: "rgba(101, 67, 33, 0.7)", // ブラウン
+    bgImage: "/images/member-bg-02.jpg",
+    jobs: [
+      { name: "営業統括責任者", sub: "", url:"/career/cso" },
+      { name: "営業担当", sub: "", url:"/career/am" },
+      { name: "ハードウェア開発リーダー", sub: "", url:"/career/hwl" },
+      { name: "ソフトウェア開発リーダー", sub: "", url:"/career/swl" },
+      { name: "フロントエンド エンジニア", sub: "", url:"/career/fe" },
+      { name: "サーバーインフラ エンジニア", sub: "", url:"/career/sre" },
+      { name: "AIエンジニア", sub: "", url:"/career/aie" },
+      { name: "ハードウェアエンジニア", sub: "", url:"/career/hw" },
+      { name: "インターン（学生向け）", sub: "", url:"/career/intern" }
+    ]
+  },
+  {
+    title: "Global Staff",
+    overlay: "rgba(255, 0, 0, 0.6)", // レッド
+    bgImage: "/images/member-bg-03.jpg",
+    jobs: [
+      { name: "VP of Sales", sub: "", url:"/career/gvpos" },
+      { name: "Sales Representative", sub: "", url:"/career/sr" },
+      { name: "Hardware Development Lead", sub: "", url:"/career/hdl" },
+      { name: "Software Development Lead", sub: "", url:"/career/sdl" },
+      { name: "Front-End Engineer", sub: "", url:"/career/fee" },
+      { name: "Server Infrastructure Engineer", sub: "", url:"/career/sie" },
+      { name: "AI Algorithm Engineer", sub: "", url:"/career/aiae" },
+      { name: "Hardware Engineer", sub: "", url:"/career/he" }
+    ]
+  }
+];
+---
+
+<section class="work-domain-section">
+  <div class="work-visual-container">
+    {/*<img src="/images/your-team-photo.jpg" alt="ワーク領域イメージ" class="work-hero-img" />*/}
+    <div class="work-label-wrapper">
+      <h2 class="work-label-title">ソニックAIで活躍する機会</h2>
+    </div>
+  </div>
+
+  <div class="work-intro-container">
+    <p class="work-description">
+      SonicAIでは、AIアルゴリズムの開発やハードウェア設計、法人営業やマーケティング活動など、あなたのスキルや経験を活かせる場が多数あります。あなたに最適なキャリアを、SonicAIで見つけてください。
+    </p>
+    <h3 class="work-main-heading">ワーク領域</h3>
+  </div>
+</section>
+
+<section class="career-section">
+  <div class="career-intro">
+    <p>各職種をクリックして詳細を確認してください</p>
+    <p class="note">＊経営陣(CTO/COO/CFO)は、完全リファラル採用とさせていただきます</p>
+  </div>
+
+  <div class="career-grid">
+    {jobCategories.map((cat) => (
+      <div class="category-column" style={`background-image: url(${cat.bgImage});`}>
+        <div class="color-overlay" style={`background-color: ${cat.overlay};`}>
+          <h2 class="category-title">{cat.title}</h2>
+          <div class="job-list">
+            {cat.jobs.map((job) => (
+              /* # ではなく、データ内の url を参照するように変更 */
+              <a href={job.url || "#"} class="job-button">
+                <span class="job-name">{job.name}</span>
+                {job.sub && <span class="job-sub">{job.sub}</span>}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .career-section {
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .work-domain-section {
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .work-visual-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* 上部にオレンジの境界線がある場合 */
+    border-top: 8px solid #ff6600; 
+  }
+
+  .work-hero-img {
+    width: 100%;
+    height: 400px; /* 必要に応じて調整 */
+    object-fit: cover;
+    filter: grayscale(100%); /* モノクロ加工（1枚目のイメージ通り） */
+    display: block;
+  }
+
+  /* 画像の下中央に重なるラベル */
+  .work-label-wrapper {
+    position: absolute;
+    bottom: -30px; /* 半分画像から下にはみ出させる */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 15px 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+
+  .work-label-title {
+    color: #ff6600;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    white-space: nowrap;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  /* ラベル下の細いオレンジ線 */
+  .work-label-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6600;
+  }
+
+  .work-intro-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 40px; /* 上はラベルの余白を考慮 */
+    text-align: center;
+  }
+
+  .work-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .work-main-heading {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+  }
+
+  .career-intro {
+    text-align: center;
+    padding: 0px 20px;
+    font-weight: 700;
+  }
+
+  .note {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+
+  .career-grid {
+    display: flex;
+    min-height: 100vh; /* 画面いっぱいの高さ */
+    width: 100%;
+  }
+
+  .category-column {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 背景固定（パララックス効果） */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .color-overlay {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .category-title {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .job-button {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80px;
+    border-radius: 4px;
+  }
+
+  .job-button:hover {
+    background-color: #fff;
+    color: #333;
+    transform: scale(1.05);
+  }
+
+  .job-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .job-sub {
+    font-size: 0.75rem;
+    margin-top: 5px;
+    opacity: 0.8;
+  }
+
+  /* モバイル対応：スマホでは縦に並べる */
+  @media (max-width: 1024px) {
+    .career-grid {
+      flex-direction: column;
+    }
+    .category-column {
+      min-height: 400px; /* スマホなら少し低くてもOK */
+    }
+    .category-title {
+      font-size: 2rem;
+    }
+
+    .work-label-wrapper {
+      width: 90%;       /* 画面幅の90%に収める */
+      padding: 15px 20px; /* 左右の余白を60pxから20pxに減らす */
+      bottom: -20px;    /* 位置を少し調整 */
+    }
+
+    .work-label-title {
+      font-size: 1.2rem; /* 文字サイズを小さく */
+      white-space: normal; /* 必要なら改行させる */
+    }
+    
+    /* 背景固定(パララックス)はスマホでバグりやすいので解除推奨 */
+    .category-column {
+      background-attachment: scroll; 
+    }
+  }
+</style>

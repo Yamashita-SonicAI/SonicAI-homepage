@@ -1,0 +1,42 @@
+.site-header {
+  position: fixed;          /* 上部固定 */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.header-inner {
+  max-width: 10000px;
+  margin: 0 auto;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  background-color: #fff;
+}
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+.logo img{
+    height: 60px;
+    width: auto;
+    display: block;
+}/*ロゴサイズ*/

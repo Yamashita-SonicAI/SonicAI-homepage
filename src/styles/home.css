@@ -1,0 +1,248 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+/*heroの調整*/
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 50px 50px; /* 上だけ抑える */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: url("/pictures/home_back.png") center / cover no-repeat;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  text-align: center;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color:coral;
+}
+
+.hero p{
+  line-height: 1.05;
+  color:#fff;
+  font-size: clamp(16px, 3vw, 24px);
+}
+
+.hero-image {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+  margin: 0;
+}
+
+.hero-text {
+  position: absolute;
+  left: 80px;
+  bottom: 120px;
+  color: #fff;
+}
+/*背景ぼかし＋文字強調*/
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.45)
+  );
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.services h2{
+  position: absolut;
+  color: coral;
+  text-align: center;
+}
+
+.philosophy {
+  padding: 200px 48px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.philosophy {
+  padding: 200px 48px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.home-service {
+  padding: 80px 10%;
+  background: #f7f7f7;
+}
+
+/* 見出し */
+.service-header h2 {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.service-header .en {
+  color: #1f5eff;
+  font-size: 16px;
+}
+
+/* サービス本体 */
+.service-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+/* テキスト */
+.service-text h3 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.service-text .sub {
+  color: #1f5eff;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.service-text p {
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  background: #1f5eff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* 画像 */
+.service-image img {
+  width: 100%;
+  max-width: 480px;
+}
+
+.footer {
+  background-color: #333; /* 薄いグレー、または #fff */
+  padding: 60px 24px 30px;
+  border-top: 1px solid #eee;
+  margin-top: 20px; /* 前のコンテンツとの間隔 */
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* ロゴと住所の間の隙間 */
+}
+
+.footer-address {
+  color: #eee; /* 文字色は適宜調整してください */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-address p {
+  margin: 0; /* デフォルトの余白をリセット */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 住所が長くても崩れないように上揃え */
+  margin-bottom: 60px;
+}
+
+.footer-logo img {
+  height: 40px; /* ロゴのサイズに合わせて調整 */
+  width: auto;
+}
+
+.footer-nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #eee;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #ff7a18; /* ホバー時にブランドカラーに変更 */
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #999;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px; /* 余白を半分くらいに縮小 */
+  }
+
+  .hero-image {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-size: 22px;  /* スマホで見やすいサイズに縮小 */
+    line-height: 1.5;
+    text-align: left; /* スマホは左揃えの方が自然な場合が多い */
+    margin-bottom: 20px;
+  }
+
+  /* 【重要】スマホではタイトル内の改行タグ(<br>)を無効化・非表示にする */
+  .hero h1 br {
+    display: none;
+  }
+
+  .hero p {
+    font-size: 14px;  /* 本文も少し小さく */
+    line-height: 1.8;
+  }
+}

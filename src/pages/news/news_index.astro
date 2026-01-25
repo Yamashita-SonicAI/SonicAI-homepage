@@ -1,0 +1,10 @@
+---
+// src/pages/news/news_index.astro
+import Layout from "../../layouts/Layout.astro";
+import NewsList from "../../components/news/NewsList.astro";
+import { newsData } from "../../data/news";
+---
+
+<Layout title="ニュース一覧">
+  <NewsList news={newsData} title="すべて" />
+</Layout>

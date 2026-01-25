@@ -1,0 +1,39 @@
+---
+// src/pages/news/[category]/[page].astro
+import Layout from "../../../layouts/Layout.astro";
+import NewsList from "../../../components/news/NewsList.astro";
+import { newsData } from "../../../data/news";
+
+export async function getStaticPaths({ paginate }) {
+  const categories = ["すべて", "プレスリリース", "お知らせ", "メディア掲載"];
+
+  return categories.flatMap((category) => {
+    // カテゴリーでフィルタリング
+    const filteredNews = category === "すべて" 
+      ? newsData 
+      : newsData.filter(item => item.category === category);
+
+    // 最新順にソート
+    filteredNews.sort((a, b) => new Date(b.date.replace(/\./g, '-')) - new Date(a.date.replace(/\./g, '-')));
+
+    // 【重要】もしニュースが0件でも、最低1回は paginate を実行して 
+    // /news/カテゴリー名/1 というURLを確定させる
+    return paginate(filteredNews, {
+      params: { category },
+      pageSize: 10,
+    });
+  });
+}
+
+// ここで props から page を受け取る
+const { page } = Astro.props;
+const { category } = Astro.params;
+---
+
+<Layout title="NEWS">
+  <NewsList 
+    news={page.data} 
+    page={page} 
+    currentCategory={category} 
+  />
+</Layout>
