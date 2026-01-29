@@ -1,26 +1,240 @@
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-top">
-      <div class="footer-info">
-        <div class="footer-logo">
-          <img src="/logo_sonicai.png" alt="SonicAI" />
-        </div>
-        <div class="footer-address">
-          <p>〒140-0000</p>
-          <p>東京都港区三田 3-5-27</p>　<p>住友不動産東京三田サウスタワー</p>
-        </div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    
+    <div class="footer-left">
+      <div class="footer-logo">
+        <a href="/">
+          <img src="/images/logo.png" alt="SonicAI" />
+        </a>
       </div>
-      <nav class="footer-nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/news">News</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
+      
+      <p class="footer-address">
+        〒100-0000<br>
+        東京都◯◯区◯◯ 1-2-3<br>
+        SonicAIビル 5F
+      </p>
+
+      <a href="/contact" class="footer-cta-btn">
+        お問い合わせ
+        <span class="arrow">→</span>
+      </a>
     </div>
 
-    <div class="footer-bottom">
-      <p class="copyright">&copy; 2025 SonicAI Inc. All Rights Reserved.</p>
+    <div class="footer-right">
+      
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="/" class="nav-head">SonicAIについて</a>
+          </li>
+          <li>
+            <a href="/Info/Member" class="nav-head">チーム</a>
+          </li>
+          <li>
+            <a href="/work-with-sonicai" class="nav-head">採用情報</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-nav-col">
+        <a href="/Info/info" class="nav-head parent-link">会社情報</a>
+        <ul class="sub-nav-list">
+          <li><a href="/Info/info">会社概要</a></li>
+          <li><a href="/Info/MessageCEO">代表挨拶</a></li>
+          <li><a href="/Info/Philosophy">企業理念</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-nav-col">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="/news/すべて/1" class="nav-head">News</a>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
+  
+  <div class="copyright">
+    &copy; 2026 SonicAI Inc. All Rights Reserved.
+  </div>
 </footer>
+
+<style>
+/* フッター全体のベース */
+.site-footer {
+  background-color: #111; /* 濃い黒背景 */
+  color: #fff;
+  padding: 80px 0 20px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* --- 左側エリア（ロゴ・ボタンなど） --- */
+.footer-left {
+  flex: 1;
+  max-width: 350px;
+}
+
+.footer-logo img {
+  width: 180px; /* ロゴサイズ調整 */
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.footer-address {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 32px;
+}
+
+.footer-cta-btn {
+  /* ▼ 横幅の調整 */
+  width: 100%;        /* 親要素（左エリア）の幅いっぱいに広げる */
+  max-width: 300px;   /* 大きくなりすぎないように制限（お好みで数値変更） */
+
+  /* ▼ 高さ・厚みの調整（内側の余白） */
+  padding: 18px 24px; /* 上下18px、左右24px（数字を増やすと分厚くなります） */
+  
+  /* ▼ 文字サイズの調整 */
+  font-size: 16px;    /* 文字を大きくするなら 18px などに */
+  
+  /* --- 以下は既存の設定 --- */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2654ea;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  transition: background-color 0.3s;
+}
+
+.footer-cta-btn:hover {
+  background-color: #1e42b8;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* --- 右側エリア（ナビゲーション） --- */
+.footer-right {
+  flex: 2;
+  display: flex;
+  justify-content: space-between; /* カラムを均等配置 */
+  gap: 40px;
+  padding-top: 10px;
+}
+
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 親カテゴリ・主要リンクのデザイン */
+.nav-head {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+/* 矢印（>）をつける（FLUX風） */
+.nav-head::before {
+  content: '›';
+  margin-right: 8px;
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* サブメニュー（会社概要など）のデザイン */
+.sub-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* 親リンクとの隙間は親のgapで調整 */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sub-nav-list li a {
+  color: #999; /* 少しグレーにして階層感を出す */
+  text-decoration: none;
+  font-size: 14px;
+  padding-left: 20px; /* インデント */
+  transition: color 0.3s;
+  display: block;
+}
+
+.sub-nav-list li a:hover,
+.nav-head:hover {
+  color: #ff6600; /* ホバー時はオレンジ */
+}
+
+/* --- コピーライト --- */
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 80px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* --- レスポンシブ対応（スマホ） --- */
+@media (max-width: 900px) {
+  .footer-inner {
+    flex-direction: column;
+    padding: 0 24px;
+    gap: 60px;
+  }
+
+  .footer-left {
+    max-width: 100%;
+  }
+  
+  .footer-right {
+    flex-direction: column; /* ナビも縦並びに */
+    gap: 40px;
+  }
+  
+  .footer-cta-btn {
+    width: 100%; /* ボタンを全幅に */
+  }
+}
+</style>
