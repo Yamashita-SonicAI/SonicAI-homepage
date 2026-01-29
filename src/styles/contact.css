@@ -234,3 +234,95 @@
     letter-spacing: -1px;
   }
 }
+
+/* 送信完了バナー */
+.contact-thanks {
+  max-width: 720px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  color: #2e7d32;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* --- 入力内容確認ページ --- */
+.contact-confirm .confirm-block {
+  max-width: 720px;
+}
+
+.confirm-dl {
+  margin-bottom: 32px;
+}
+
+.confirm-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px 24px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.confirm-row:first-child {
+  padding-top: 0;
+}
+
+.confirm-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+}
+
+.confirm-value {
+  font-size: 16px;
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  align-items: stretch;
+}
+
+.confirm-actions .submit-btn,
+.confirm-actions .confirm-back {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 14px 32px;
+  font-size: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.confirm-back {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #888, #666);
+  cursor: pointer;
+}
+
+.confirm-back:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 968px) {
+  .confirm-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .confirm-actions .submit-btn,
+  .confirm-actions .confirm-back {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+}

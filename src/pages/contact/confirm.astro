@@ -1,0 +1,153 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import "../../styles/home.css";
+import "../../styles/contact.css";
+
+// ★ここにFormspreeのURLを貼ってください
+const FORMSPREE_URL = "https://formspree.io/f/mykjkwjo";
+---
+
+<Layout>
+  <section class="contact-page contact-confirm">
+    <div class="contact-title-area">
+      <div class="title-label">
+        <span class="dot">●</span> 入力内容の確認
+      </div>
+      <h1 class="main-title">Confirm</h1>
+    </div>
+    
+    <div class="contact-container">
+      <div class="contact-form-side confirm-block">
+        
+        <form action={FORMSPREE_URL} method="POST" id="submit-form">
+          <input type="hidden" name="_subject" value="SonicAI サイトからのお問い合わせ" />
+          <div id="confirm-data" class="confirm-data"></div>
+
+          <div class="confirm-actions">
+            <button type="button" class="submit-btn confirm-back" onclick="history.back()">修正する</button>
+            
+            <button type="submit" id="confirm-submit" class="submit-btn">送信する</button>
+          </div>
+        </form>
+        </div>
+    </div>
+  </section>
+
+  <script>
+    const storageKey = 'contactFormData';
+    const dataEl = document.getElementById('confirm-data');
+    const formEl = document.getElementById('submit-form'); // フォーム要素を取得
+
+    try {
+      const raw = sessionStorage.getItem(storageKey);
+      if (!raw) {
+        window.location.replace('/contact');
+        throw new Error('no data');
+      }
+      const data = JSON.parse(raw);
+      
+      const labels = {
+        name: 'お名前',
+        email: 'メールアドレス',
+        tel: 'お電話番号',
+        company: '会社名',
+        message: 'お問い合わせ内容',
+      };
+
+      const frag = document.createDocumentFragment();
+
+      // ループ処理：表示用HTMLと、送信用hiddenタグを同時に作る
+      for (const [key, label] of Object.entries(labels)) {
+        const v = data[key];
+        if (v == null) continue; // データがない項目はスキップ
+
+        // 1. 表示用の行を作成（ユーザーが見る用）
+        const row = document.createElement('div');
+        row.className = 'confirm-row';
+        const val = String(v);
+        // 改行コードを<br>に変換して表示
+        const valSafe = escapeHtml(val).replace(/\n/g, '<br>');
+        row.innerHTML = `<span class="confirm-label">${escapeHtml(label)}</span><span class="confirm-value">${valSafe}</span>`;
+        frag.appendChild(row);
+
+        // 2. 送信用の隠しinputを作成（Formspreeに送る用）
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = key; // Formspreeが受け取る項目名 (name, emailなど)
+        hiddenInput.value = val;
+        formEl.appendChild(hiddenInput);
+      }
+
+      // 画面に反映
+      const wrap = document.createElement('div');
+      wrap.className = 'confirm-dl';
+      wrap.appendChild(frag);
+      dataEl?.appendChild(wrap);
+
+    } catch (e) {
+      if (e.message !== 'no data') {
+        // エラーなら入力画面へ戻す
+        window.location.replace('/contact');
+      }
+    }
+
+    // HTMLエスケープ処理
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    // フォーム送信時の処理
+    formEl?.addEventListener('submit', function () {
+      // 送信したらsessionStorageをクリアする
+      sessionStorage.removeItem(storageKey);
+    });
+  </script>
+
+  <style>
+    /* 「修正する」ボタンの色をグレーにして区別する（お好みで調整） */
+    .confirm-back {
+      background: #888 !important; 
+      margin-right: 20px;
+    }
+    
+    .confirm-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    /* 確認画面の行のデザイン */
+    .confirm-row {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .confirm-label {
+      font-weight: bold;
+      color: #ff7a18;
+      font-size: 14px;
+    }
+    .confirm-value {
+      font-size: 16px;
+      color: #333;
+      white-space: pre-wrap; /* 改行を反映 */
+    }
+
+    /* スマホ調整 */
+    @media (max-width: 768px) {
+      .confirm-actions {
+        flex-direction: column-reverse; /* スマホでは「修正」を下にする */
+        gap: 20px;
+      }
+      .confirm-back {
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</Layout>

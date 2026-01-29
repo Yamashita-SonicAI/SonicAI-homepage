@@ -13,38 +13,77 @@ import "../styles/contact.css";
   </div>
   <h1 class="main-title">Contact</h1>
 </div>
+  <div id="contact-thanks" class="contact-thanks" role="alert" hidden>
+    送信が完了しました。お問い合わせありがとうございます。
+  </div>
   <div class="contact-container">
     <div class="contact-form-side">
-      <form action="#" method="POST">
+      <form id="contact-form" action="/contact/confirm" method="get">
         <div class="form-group">
-          <label>お名前<span>*</span></label>
-          <input type="text" placeholder="お名前" required />
+          <label for="contact-name">お名前<span>*</span></label>
+          <input id="contact-name" name="name" type="text" placeholder="お名前" required />
         </div>
         <div class="form-group">
-          <label>メールアドレス<span>*</span></label>
-          <input type="email" placeholder="メールアドレス" required />
+          <label for="contact-email">メールアドレス<span>*</span></label>
+          <input id="contact-email" name="email" type="email" placeholder="メールアドレス" required />
         </div>
         <div class="form-group">
-          <label>お電話番号<span>*</span></label>
-          <input type="tel" placeholder="お電話番号" required />
+          <label for="contact-tel">お電話番号<span>*</span></label>
+          <input id="contact-tel" name="tel" type="tel" placeholder="お電話番号" required />
         </div>
         <div class="form-group">
-          <label>会社名</label>
-          <input type="text" placeholder="会社名" />
+          <label for="contact-company">会社名<span>*</span></label>
+          <input id="contact-company" name="company" type="text" placeholder="会社名" />
         </div>
         <div class="form-group">
-          <label>お問い合わせ内容</label>
-          <textarea placeholder="お問い合わせ内容"></textarea>
+          <label for="contact-message">お問い合わせ内容</label>
+          <textarea id="contact-message" name="message" placeholder="お問い合わせ内容"></textarea>
         </div>
         
         <button type="submit" class="submit-btn">送信</button>
       </form>
     </div>
-
-    <div class="contact-image-side">
-      <div class="image-wrapper">
-        <img src="/images/contact-visual.png" alt="Contact Visual" />
-        <div class="accent-circle"></div> </div>
-    </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const storageKey = 'contactFormData';
+
+    // 確認ページから戻ってきたときに入力値を復元
+    try {
+      const saved = sessionStorage.getItem(storageKey);
+      if (saved) {
+        const data = JSON.parse(saved) as Record<string, string>;
+        const set = (id: string, value: string) => {
+          const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null;
+          if (el && value != null) el.value = value;
+        };
+        set('contact-name', data.name);
+        set('contact-email', data.email);
+        set('contact-tel', data.tel);
+        set('contact-company', data.company);
+        set('contact-message', data.message);
+      }
+    } catch (_) {}
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = {
+        name: (document.getElementById('contact-name') as HTMLInputElement)?.value ?? '',
+        email: (document.getElementById('contact-email') as HTMLInputElement)?.value ?? '',
+        tel: (document.getElementById('contact-tel') as HTMLInputElement)?.value ?? '',
+        company: (document.getElementById('contact-company') as HTMLInputElement)?.value ?? '',
+        message: (document.getElementById('contact-message') as HTMLTextAreaElement)?.value ?? '',
+      };
+      sessionStorage.setItem(storageKey, JSON.stringify(data));
+      window.location.href = '/contact/confirm';
+    });
+
+    const thanks = document.getElementById('contact-thanks');
+    if (thanks && /[?&]thanks=1\b/.test(window.location.search)) {
+      thanks.hidden = false;
+    }
+  })();
+</script>
