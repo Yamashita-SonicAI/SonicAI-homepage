@@ -2,35 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-
   <header class="Info-header">
     <div class="container">
-      <h1>メンバー</h1>
+      <h1>Team</h1>
     </div>
   </header>
 
-  <nav class="Info-nav">
-    <div class="container">
-      <ul>
-        <li><a href="/Info/info">会社概要</a></li>
-        <li class="active"><a href="/Info/member">メンバー</a></li>
-        <li><a href="/Info/MessageCEO">代表ご挨拶</a></li>
-        <li><a href="/Info/Philosophy">企業理念</a></li>
-      </ul>
-    </div>
-  </nav>
-
 <section class="member-page">
-  <div class="hero-banner">
-    <div class="container">
-      {/*<div class="icon-box">
-        <img src="/icons/members.svg" alt="Members Icon" />
-      </div>*/}
-      <p class="banner-text">
-        SonicAIは、AI、機械学習、ビジネス戦略に強みを持つメンバーで形成されており、豊富な製造現場での業界経験を活かして革新的な社会実装ソリューションを提供するスタートアップです。
-      </p>
-    </div>
-  </div>
 
   <div class="container member-content">
     <h2 class="category-title">経営陣</h2>
@@ -110,6 +88,18 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   /* 全体共通レイアウト */
+
+  .Info-header {
+    background: #fff;
+  }
+
+  .Info-header h1 {
+    padding: 40px;
+    color: #ff6600;
+    font-size: 120px;
+    margin
+  }
+
   .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -156,7 +146,7 @@ import Layout from "../layouts/Layout.astro";
   .category-title {
     font-size: 28px;
     font-weight: 700;
-    color: #ff6600;
+    color: #333;
     margin: 10px;
     margin-bottom: 20px;
     padding-bottom: 15px;
@@ -188,7 +178,7 @@ import Layout from "../layouts/Layout.astro";
   .position {
     font-size: 18px;
     font-weight: 700;
-    color: #333;
+    color: #ff6600;
   }
 
   .member-bio {
