@@ -1,0 +1,142 @@
+---
+// src/pages/company.astro
+import Layout from "../layouts/Layout.astro";
+
+// 各コンポーネントをインポート（パスは実際の環境に合わせてください）
+// ※今まで /pages/Info/Member.astro に書いていた中身を /components/Member.astro に移すか、直接ここに書く必要があります。
+import Philosophy from "../components/info/Philosophy.astro";
+import MessageCEO from "../components/info/MessageCEO.astro";
+import CompanyProfile from "../components/info/Information.astro";
+import "../styles/Information.css";
+
+---
+
+<Layout title="会社情報 | SonicAI">
+
+  <div class="page-header">
+    <h1 class="page-title">企業情報</h1>
+  </div>
+
+  <nav class="local-nav">
+    <div class="local-nav-inner">
+      <ul>
+        <li><a href="#profile">会社概要</a></li>
+        <li><a href="#message">代表挨拶</a></li>
+        <li><a href="#philosophy">企業理念</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="info-page-container">
+    <section id="profile" class="info-section">
+      <CompanyProfile />
+    </section>
+
+    <section id="message" class="info-section">
+      <MessageCEO />
+    </section>
+
+    <section id="philosophy" class="info-section">
+      <Philosophy />
+    </section>
+
+  </div>
+</Layout>
+
+<style>
+  /* 全体のスムーススクロール設定 */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ページタイトルヘッダー */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 8px;
+  }
+
+  .page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 80;
+    margin-bottom: 0px;
+    text-align: left;
+  }
+
+  /* ページ内ナビのデザイン */
+  .local-nav {
+    position: sticky; /* スクロールしても上に張り付く設定 */
+    top: 80px;        /* グローバルヘッダーの高さ分あける（重要） */
+    background: #fff;
+    border-bottom: 3px solid #ff7a18; /* オレンジのアンダーライン */
+    z-index: 900;     /* グローバルヘッダーよりは下、コンテンツよりは上 */
+    width: 100%;
+  }
+
+  .local-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    overflow-x: auto; /* スマホで横スクロール可能に */
+  }
+
+  .local-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+    white-space: nowrap;
+  }
+
+  .local-nav a {
+    display: block;
+    padding: 20px 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .local-nav a:hover {
+    color: #ff7a18;
+    border-bottom-color: #ff7a18;
+  }
+
+  /* --- スクロール位置の調整（重要） --- */
+  .info-section {
+    /* アンカーリンクで飛んだ時、ヘッダーに隠れないように調整します。
+       計算式：グローバルヘッダー(80px) + ローカルナビ(60px) + 余白(40px) 
+    */
+    scroll-margin-top: 180px; 
+    
+    padding-bottom: 100px; /* セクション間の余白 */
+  }
+
+  /* スマホ対応 */
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 30px 16px 5px;
+    }
+    .page-title {
+      font-size: 24px;
+    }
+    .local-nav {
+      top: 60px; /* スマホのヘッダー高さに合わせる */
+    }
+    .local-nav ul {
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .local-nav a {
+      font-size: 14px;
+      padding: 15px 0;
+    }
+    .info-section {
+      scroll-margin-top: 120px; /* スマホ用の調整 */
+    }
+  }
+</style>

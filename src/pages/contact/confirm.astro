@@ -16,17 +16,17 @@ const FORMSPREE_URL = "https://formspree.io/f/mykjkwjo";
       </div>
       <h1 class="main-title">Confirm</h1>
     </div>
-    
+
     <div class="contact-container">
       <div class="contact-form-side confirm-block">
-        
+
         <form action={FORMSPREE_URL} method="POST" id="submit-form">
           <input type="hidden" name="_subject" value="SonicAI サイトからのお問い合わせ" />
           <div id="confirm-data" class="confirm-data"></div>
 
           <div class="confirm-actions">
             <button type="button" class="submit-btn confirm-back" onclick="history.back()">修正する</button>
-            
+
             <button type="submit" id="confirm-submit" class="submit-btn">送信する</button>
           </div>
         </form>
@@ -46,7 +46,7 @@ const FORMSPREE_URL = "https://formspree.io/f/mykjkwjo";
         throw new Error('no data');
       }
       const data = JSON.parse(raw);
-      
+
       const labels = {
         name: 'お名前',
         email: 'メールアドレス',
@@ -109,10 +109,10 @@ const FORMSPREE_URL = "https://formspree.io/f/mykjkwjo";
   <style>
     /* 「修正する」ボタンの色をグレーにして区別する（お好みで調整） */
     .confirm-back {
-      background: #888 !important; 
+      background: #888 !important;
       margin-right: 20px;
     }
-    
+
     .confirm-actions {
       display: flex;
       justify-content: center;
